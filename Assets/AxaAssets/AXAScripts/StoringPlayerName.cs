@@ -19,7 +19,10 @@ public class StoringPlayerName : MonoBehaviour
     void Start()
     {
         hasNameBeenSaved = false;
+    }
 
+    public void OnPlayClick()
+    {
         if (PlayerPrefs.HasKey("playerName"))
         {
             inputNameParentObj.SetActive(false);
@@ -30,10 +33,7 @@ public class StoringPlayerName : MonoBehaviour
             hasGameBeenPlayedBefore = false;
             inputNameParentObj.SetActive(true);
         }
-        
-
     }
-
     public void OnClickSaveName()
     {
             playerName = myText.text;
