@@ -1,16 +1,17 @@
 using UnityEngine;
+using UnityEngine.UI;
 
+//this script will manage the walkiw talkie including the animation and audio etc. 
 public class WalkieTalkieManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         
     }
 
-    // Update is called once per frame
+
     void Update()
     {
-        
+
     }
 }
