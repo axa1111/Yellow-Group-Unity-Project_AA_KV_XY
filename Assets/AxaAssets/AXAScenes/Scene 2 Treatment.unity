@@ -3336,6 +3336,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoint: {x: 1.117, y: 2.57, z: -2.647}
+  rightFootColliderObj: {fileID: 1286777222}
 --- !u!64 &2726501836298066057
 MeshCollider:
   m_ObjectHideFlags: 0

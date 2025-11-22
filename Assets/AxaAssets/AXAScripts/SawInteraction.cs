@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class SawInteraction : MonoBehaviour
@@ -9,10 +10,16 @@ public class SawInteraction : MonoBehaviour
 
     private Animator sawAnim;
 
+    private bool isSawing;
+
+    [SerializeField]
+    private GameObject rightFootColliderObj;
+
     void Start()
     {
         hasEnteredRightFootCollider = false;
         sawAnim = GetComponent<Animator>();
+        isSawing = false;
     } 
     void OnMouseDown()
     {
@@ -32,23 +39,37 @@ public class SawInteraction : MonoBehaviour
      void OnMouseUp()
     {
         //if the towel isnt on the foot and the player lets go of it
-        if (!hasEnteredRightFootCollider)
+        if (!hasEnteredRightFootCollider && !isSawing)
         {
             //it will be moved back to the spawn point (original position)
             transform.position = spawnPoint;
         }
     }
 
-//when the cloth enters the obj with a collider which is tagges Left Foot
+    //when the cloth enters the obj with a collider which is tagges Left Foot
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Right Foot"))
         {
+             StartCoroutine(ResetSawPositionAfterAnimation());
             sawAnim.enabled = true;
             //we set hasEnteredCollider to true
             hasEnteredRightFootCollider = true;
             sawAnim.SetBool("isInRightFootCollider", true);
+            isSawing = true;
+           
 
         }
+    }
+    
+    private IEnumerator ResetSawPositionAfterAnimation()
+    {
+        yield return new WaitForSeconds(16f);
+        sawAnim.enabled = false;
+        rightFootColliderObj.SetActive(false);
+        isSawing = false;
+        hasEnteredRightFootCollider = false;
+        sawAnim.SetBool("isInRightFootCollider", false);
+        transform.position = spawnPoint;
     }
 }
