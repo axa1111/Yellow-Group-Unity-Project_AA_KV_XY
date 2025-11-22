@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class Script_CameraRotate : MonoBehaviour
 {
-    public float rotationSpeed;
-    public float rotationDuration;
+    //public float rotationSpeed;
+    //public float rotationDuration;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
