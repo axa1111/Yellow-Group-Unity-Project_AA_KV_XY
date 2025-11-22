@@ -1,4 +1,5 @@
 using System.Collections;
+using NUnit.Framework;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -48,13 +49,15 @@ public class TowelMovementInteraction : MonoBehaviour
         }
     }
 
-//when the cloth enters the obj with a collider which is tagges Left Foot
+//when the cloth enters the obj with a collider which is tagges right Foot
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Left Foot"))
         {
             //we set hasEnteredCollider to true
             hasEnteredFootCollider = true;
+
+            Debug.Log("HasEnteredfoot");
             //and we begin the towel timer coroutine
             StartCoroutine(TowelTimer());
         }
