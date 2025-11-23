@@ -609,7 +609,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &576154796
 RectTransform:
   m_ObjectHideFlags: 0
@@ -626,7 +626,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 426, y: 156}
+  m_AnchoredPosition: {x: 447, y: 117}
   m_SizeDelta: {x: 249.2111, y: 65.7617}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &576154797
@@ -810,7 +810,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 609179781}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1399097403}
+        m_TargetAssemblyTypeName: DialogCycler, Assembly-CSharp
+        m_MethodName: ShowNextDialog
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &609179781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -866,7 +878,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &786436737
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1166,7 +1178,7 @@ Transform:
   m_GameObject: {fileID: 1043747248}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8, y: -0.12, z: 0}
+  m_LocalPosition: {x: 8, y: 0.514, z: 0}
   m_LocalScale: {x: 0.9262448, y: 2.28404, z: 0.99561024}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1189,7 +1201,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1200657681
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1206,7 +1218,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -487, y: 85}
+  m_AnchoredPosition: {x: 454, y: -103}
   m_SizeDelta: {x: 249.2111, y: 65.7617}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1200657682
@@ -1308,6 +1320,55 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1200657680}
   m_CullTransparentMesh: 1
+--- !u!1 &1399097402
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1399097404}
+  - component: {fileID: 1399097403}
+  m_Layer: 0
+  m_Name: DialogManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1399097403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1399097402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23b44fd70dcc6364ebcd3d6510e00d67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogs:
+  - {fileID: 786436736}
+  - {fileID: 576154795}
+  - {fileID: 1621883723}
+  - {fileID: 1200657680}
+--- !u!4 &1399097404
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1399097402}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 950.59705, y: 985.6144, z: 41.25333}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1585555454
 GameObject:
   m_ObjectHideFlags: 0
@@ -1461,7 +1522,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1621883724
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1478,7 +1539,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 437, y: -17}
+  m_AnchoredPosition: {x: -492, y: 81}
   m_SizeDelta: {x: 249.2111, y: 65.7617}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1621883725
@@ -1726,3 +1787,4 @@ SceneRoots:
   - {fileID: 806759028}
   - {fileID: 129951357}
   - {fileID: 1043747252}
+  - {fileID: 1399097404}
