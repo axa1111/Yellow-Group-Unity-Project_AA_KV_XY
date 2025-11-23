@@ -17,6 +17,6 @@ public class Script_LookAtObject : MonoBehaviour
     
     public void LookAt()
     {
-        LookAt(Transform.LookAt target);
+       // LookAt(Transform.LookAt target);
     }
 }
