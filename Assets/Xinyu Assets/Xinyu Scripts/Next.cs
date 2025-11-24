@@ -1,13 +1,13 @@
 using UnityEngine;
 using System.Collections; 
 
-public class DialogCycler : MonoBehaviour
+public class Next : MonoBehaviour
 {
 public GameObject[] dialogs; // 拖入4个TMP文本 
    private int currentIndex = 0;
    public GameObject nextButton;
-   public GameObject sceneOne;
-   public GameObject sceneTwo; 
+   public GameObject sceneTwo;
+   public GameObject sceneThree; 
    public void ShowNextDialog() 
    { 
       // 如果还有未显示的对话框 
@@ -20,8 +20,8 @@ public GameObject[] dialogs; // 拖入4个TMP文本
        else
        {
             nextButton.SetActive(false);
-            sceneOne.SetActive(false);
-            sceneTwo.SetActive(true);
+            sceneTwo.SetActive(false);
+            sceneThree.SetActive(true);
        }
    } 
 
