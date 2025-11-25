@@ -19,12 +19,12 @@ public class Script_ManageCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(KeyCode.RightArrow))
+        if(Input.GetKey(KeyCode.RightArrow) && currentTargetToLookAt != null)
         {
             transform.RotateAround(currentTargetToLookAt.transform.position, Vector3.up, -50 * Time.deltaTime);
         }
 
-        else if(Input.GetKey(KeyCode.LeftArrow))
+        else if(Input.GetKey(KeyCode.LeftArrow) && currentTargetToLookAt != null)
         {
             transform.RotateAround(currentTargetToLookAt.transform.position, Vector3.up, 50 * Time.deltaTime);
         }
