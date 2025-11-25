@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
+//rotate around https://docs.unity3d.com/6000.0/Documentation/ScriptReference/Transform.RotateAround.html
 public class Script_ManageCamera : MonoBehaviour
 {
     public GameObject leftFootTarget;
@@ -8,13 +9,11 @@ public class Script_ManageCamera : MonoBehaviour
     private GameObject currentTargetToLookAt;
 
     private Animator cameraAnim;
-    private bool animationHasBegun;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         cameraAnim = GetComponent<Animator>();
-        animationHasBegun = false;
     }
 
     // Update is called once per frame
@@ -22,12 +21,12 @@ public class Script_ManageCamera : MonoBehaviour
     {
         if(Input.GetKey(KeyCode.RightArrow))
         {
-            transform.Translate(0.1f, 0.0f, 0.0f, Space.Self);
+            transform.RotateAround(currentTargetToLookAt.transform.position, Vector3.up, -50 * Time.deltaTime);
         }
 
         else if(Input.GetKey(KeyCode.LeftArrow))
         {
-            transform.Translate(-0.1f, 0.0f, 0.0f, Space.Self);
+            transform.RotateAround(currentTargetToLookAt.transform.position, Vector3.up, 50 * Time.deltaTime);
         }
 
         if(currentTargetToLookAt != null)
