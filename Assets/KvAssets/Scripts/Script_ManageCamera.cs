@@ -39,9 +39,9 @@ public class Script_ManageCamera : MonoBehaviour
     public void OnRightFootButtonClick()
     {
         //set right foot as target and add button to trigger animation
-        
+
         cameraAnim.enabled = true;
-         StartCoroutine(WaitForRightFootAnimation());
+        StartCoroutine(WaitForRightFootAnimation());
         //make 'inspect right foot' button inactive until 'inspect left foot' clicked?
     }
 
@@ -65,9 +65,9 @@ public class Script_ManageCamera : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
         cameraAnim.SetBool("isRightCloseLookButtonClicked", true);
-        yield return new WaitForSeconds(1.0f);
-        cameraAnim.enabled = false;
         currentTargetToLookAt = rightFootTarget;
+        yield return new WaitForSeconds(1f);
+        cameraAnim.enabled = false;
     }
 
 }
