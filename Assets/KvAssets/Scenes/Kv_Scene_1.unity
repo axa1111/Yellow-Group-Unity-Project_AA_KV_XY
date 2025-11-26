@@ -1241,6 +1241,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftFootTarget: {fileID: 106334469}
   rightFootTarget: {fileID: 1392970936}
+  currentTargetToLookAt: {fileID: 0}
+  cameraAnim: {fileID: 0}
 --- !u!114 &330585551
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1256,6 +1258,7 @@ MonoBehaviour:
   cameraDetectionCollider: {fileID: 1629335514}
   xrayButton: {fileID: 1549746450}
   mainCameraObj: {fileID: 330585543}
+  script_ManageCameraScript: {fileID: 0}
 --- !u!65 &330585552
 BoxCollider:
   m_ObjectHideFlags: 0
