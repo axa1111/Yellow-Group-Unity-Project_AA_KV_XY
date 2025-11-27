@@ -88,11 +88,8 @@ public class MouseCameraDragOrbitWithZoom  : MonoBehaviour
         Vector3 position = rotation * negDistance + target.position;
         
         //Assign Pos and Rot to Camera Transform
-        //transform.rotation = rotation;
-        //transform.position = position;
-
-        target.rotation = rotation;
-        target.position = position;
+        transform.rotation = rotation;
+        transform.position = position;
 
         //Interpolation between values ==> Smoother motion
         velocityX = Mathf.Lerp(velocityX, 0, Time.deltaTime * smoothTime);
