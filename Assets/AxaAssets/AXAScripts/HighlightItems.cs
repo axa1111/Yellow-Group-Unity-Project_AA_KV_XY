@@ -14,7 +14,6 @@ public class HighlightItems : MonoBehaviour
             ? new[] { meshRenderer }
             : GetComponentsInChildren<Renderer>();
         originalLayer = renderers[0].renderingLayerMask;
-        TurnOutlineOn();
     }
 
     public void TurnOutlineOn()
@@ -22,10 +21,10 @@ public class HighlightItems : MonoBehaviour
         SetOutline(true);
     }
 
-    private void OnMouseDown()
+   public void TurnOutlineOff()
     {
         SetOutline(false);
-    }
+    } 
 
     private void SetOutline(bool enable)  
     {        
