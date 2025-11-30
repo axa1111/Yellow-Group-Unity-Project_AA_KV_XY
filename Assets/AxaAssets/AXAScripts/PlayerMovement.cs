@@ -46,6 +46,9 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 move = player.transform.right * horizontal + player.transform.forward * vertical; //multiply players z axiz by horizontal input value plus multiply z axis by vertical input value 
 
+        move.y = -0.01f; //there was a little jump when the player first started moving (likely the players collider was not touching the ground properly) 
+        //we move the character down ever so lightly to ensure the collider is always touching the ground so the little jump doesn't happen
+
         playerController.Move(move * walkSpeed * Time.deltaTime); //moving the player in the game based on input (move = wasd) multiplied by the moveSpeed multiplied by Time.deltaTime
     }
 }
