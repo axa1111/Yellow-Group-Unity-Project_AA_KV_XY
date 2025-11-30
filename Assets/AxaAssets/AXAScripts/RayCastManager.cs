@@ -4,7 +4,8 @@ public class RayCastManager : MonoBehaviour
 {
     [SerializeField]
     private GameObject reticule; //referencing the reticule obj
-    private float maxDistance = 6f; //setting max distance of ray to 5 
+    private float maxDistance = 6f; //setting max distance of ray to 6f
+    public RaycastHit hit; //declaring variable RayCastHit as hit
 
 
     [Header("Obj to interact with")] //header for neatness
@@ -36,8 +37,6 @@ public class RayCastManager : MonoBehaviour
             
         Ray ray = new Ray(transform.position, transform.forward); // creating ray then setting ray direction to forward
 
-        RaycastHit hit; //declaring variable RayCastHit as hit
-
         //checking if ray is hitting somrthing in the scene 
         if (Physics.Raycast(ray, out hit, maxDistance))
         {
@@ -49,7 +48,6 @@ public class RayCastManager : MonoBehaviour
 
                 //move it to the point where the ray hits
                 reticule.transform.position = hit.point;
-                // reticule.transform.LookAt(transform.position);
             }
             
             for(int i = 0; i <interactableObjects.Length; i++) //looping through all interactable objs
@@ -60,21 +58,14 @@ public class RayCastManager : MonoBehaviour
                 }
                 
             } 
-
-            //this if statement will later handle item interactions
-            if (Input.GetKeyDown(KeyCode.P))
-            {
-                
-                
-            }
         }
         else
         {
             //else if the reticule is not null then set it inactive if it doesn't hit anything
-            if (reticule != null)
+          /* if (reticule != null)
             {
                 reticule.SetActive(false);
-            }
+            } */
         }
          Debug.DrawRay(ray.origin, ray.direction * maxDistance, Color.red); //Debug to draw ray from the camera in scene window
        
