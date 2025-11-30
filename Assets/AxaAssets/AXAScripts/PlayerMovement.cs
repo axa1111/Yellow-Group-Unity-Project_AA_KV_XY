@@ -7,9 +7,9 @@ public class PlayerMovement : MonoBehaviour
 {
     [Header("Look variables")]
     [SerializeField]
-    public float sensitivity = 300f; ///manages the sensitivity of the mouse serialize field for tesing in game scene
+    private float sensitivity = 300f; ///manages the sensitivity of the mouse serialize field for tesing in game scene
     [SerializeField]
-    public Transform player; //reference to players transform which is moved (changed) using this script
+    private Transform player; //reference to players transform which is moved (changed) using this script
     private float xRotation = 0f; //rotation float
 
     //movement variables
@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked; //keep mouse centre of th scene and hide it as it's not needed 
         playerController = player.GetComponent<CharacterController>();
     }
