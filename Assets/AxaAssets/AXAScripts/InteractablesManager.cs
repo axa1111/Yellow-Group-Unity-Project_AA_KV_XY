@@ -13,7 +13,7 @@ public class InteractablesManager : MonoBehaviour
     public GameObject footTowelTable;   
 
     [Header("Interactables Picked Up")]
-   // public GameObject sawPickedUp;
+    public GameObject sawPickedUp;
     public GameObject flaskPickedUp;
     public GameObject faceTowelPickedUp; 
     public GameObject footTowelPickedUp;     
@@ -35,11 +35,12 @@ public class InteractablesManager : MonoBehaviour
 
         GameObject hitObject = raycastManagerScript.hit.collider.gameObject; //det hitObject to the object hit
 
-        switch (hitObject.tag) //using switch instead of lots of if statments
+        //using switch instead of lots of if statments
+        switch (hitObject.tag)
         {
             case "Saw": //if the tag is saw the do this
                 Debug.Log("picked up" + hitObject.name);
-               // SwapActiveObj(sawTable, sawPickedUp);
+               SwapActiveObj(sawTable, sawPickedUp);
                 break;
 
             case "Flask": //if the tag is flask the do this
