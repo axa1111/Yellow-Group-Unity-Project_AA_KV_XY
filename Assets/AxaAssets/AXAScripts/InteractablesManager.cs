@@ -16,7 +16,10 @@ public class InteractablesManager : MonoBehaviour
     public GameObject sawPickedUp;
     public GameObject flaskPickedUp;
     public GameObject faceTowelPickedUp; 
-    public GameObject footTowelPickedUp;     
+    public GameObject footTowelPickedUp;
+
+    [Header("Booleans to Track")]    
+    private bool sawIsPickedUp = false;
     //public GameObject footTowelPickedUp;   
     void Start()
     {
@@ -41,6 +44,7 @@ public class InteractablesManager : MonoBehaviour
             case "Saw": //if the tag is saw the do this
                 Debug.Log("picked up" + hitObject.name);
                SwapActiveObj(sawTable, sawPickedUp);
+               sawIsPickedUp = true;
                 break;
 
             case "Flask": //if the tag is flask the do this
