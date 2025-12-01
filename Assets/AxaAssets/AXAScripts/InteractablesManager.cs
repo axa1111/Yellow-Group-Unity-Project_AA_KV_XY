@@ -15,7 +15,8 @@ public class InteractablesManager : MonoBehaviour
     [Header("Interactables Picked Up")]
    // public GameObject sawPickedUp;
     public GameObject flaskPickedUp;
-    public GameObject faceTowelPickedUp;     
+    public GameObject faceTowelPickedUp; 
+    public GameObject footTowelPickedUp;     
     //public GameObject footTowelPickedUp;   
     void Start()
     {
@@ -53,7 +54,7 @@ public class InteractablesManager : MonoBehaviour
 
             case "FootTowel": //if the tag is FootTowel the do this
                 Debug.Log("picked up" + hitObject.name);
-                //SwapActiveObj(footTowelTable, footTowelPickedUp);
+                SwapActiveObj(footTowelTable, footTowelPickedUp);
                 break;
 
             default:

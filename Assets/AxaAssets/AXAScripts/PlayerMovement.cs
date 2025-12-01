@@ -1,7 +1,7 @@
 using UnityEngine;
 //script is on the main camera
 
-//https://medium.com/@icodewithben/3-1-creating-a-mouse-look-script-for-your-3d-character-b5c1de2a0df5 mouse rotation
+//https://medium.com/@icodewithben/3-1-creating-a-mouse-look-script-for-your-3d-character-b5c1de2a0df5 mouse rotation (look at)
 //https://docs.unity3d.com/6000.0/Documentation/Manual/class-InputManager.html = float horizontal = Input.GetAxis("Horizontal");
 public class PlayerMovement : MonoBehaviour
 {
@@ -19,9 +19,9 @@ public class PlayerMovement : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked; //keep mouse centre of th scene and hide it as it's not needed 
-        playerController = player.GetComponent<CharacterController>();
+        Cursor.visible = false; 
+        Cursor.lockState = CursorLockMode.Locked; //keep mouse centre of th scene and hide it as it's not needed
+        playerController = player.GetComponent<CharacterController>(); 
     }
 
     // Update is called once per frame
@@ -40,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
         xRotation = Mathf.Clamp(xRotation, -90f, 90f); //clamp (limit) rotation 
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f); //rotate the player locaally using the xrotation we rotate around y axis
 
+        
         //Movement
 
         float horizontal = Input.GetAxis("Horizontal"); //see input manager - axis in project settings this refers to D & A keys returns -1 if a (left) and +1 if right

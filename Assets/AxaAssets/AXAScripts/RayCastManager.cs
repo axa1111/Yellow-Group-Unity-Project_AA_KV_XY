@@ -59,14 +59,14 @@ public class RayCastManager : MonoBehaviour
                 
             } 
         }
-        //else
-       // {
+        else
+       {
             //else if the reticule is not null then set it inactive if it doesn't hit anything
-          /* if (reticule != null)
+           if (reticule != null)
             {
                 reticule.SetActive(false);
-            } */
-      //  }
+            } 
+        }
          Debug.DrawRay(ray.origin, ray.direction * maxDistance, Color.red); //Debug to draw ray from the camera in scene window
        
 
