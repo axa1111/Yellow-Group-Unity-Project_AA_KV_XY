@@ -1,45 +1,65 @@
-using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
+using UnityEngine; 
+
+using System.Collections; 
+
+using System.Collections.Generic; 
+
+ 
+public class ToggleHighlightOnObj : MonoBehaviour 
+
+{ 
+
+    private bool isClicked = false; 
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created 
+
+    void Start() 
+
+    { 
+        transform.GetComponent<Outline>().enabled = false; 
+    } 
+
+ 
+
+    // Update is called once per frame 
+
+    void Update() 
+
+    { 
+
+    } 
 
 
-public class ToggleHighlightOnObj : MonoBehaviour
-{
-    private bool isClicked = false;
-    public GameObject myManagerObj;
+    void OnMouseDown() 
 
-    private ManagerGameObjectList myManagerObjListScript;
+    { 
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        transform.GetComponent<Outline>().enabled = false;
+        Debug.Log("click on object" + transform.name); 
 
-        myManagerObj = GameObject.Find("Manager");
-        myManagerObjListScript = myManagerObj.transform.GetComponent<ManagerGameObjectList>();
-    }
+        isClicked = !isClicked; 
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+        if(isClicked) 
 
-    void OnMouseDown()
-    {
-        Debug.Log("click on object" + transform.name);
+        { 
 
-        isClicked = !isClicked;
+            transform.GetComponent<Outline>().enabled = true; 
 
-        if(isClicked)
-        {
-            transform.GetComponent<Outline>().enabled = true;
-            myManagerObjListScript.myObjList.Add(transform.gameObject);
-        }
-        else
-        {
-            transform.GetComponent<Outline>().enabled = false;
-        }
-        
-    }
-}
+        } 
+
+        else 
+
+        { 
+
+            transform.GetComponent<Outline>().enabled = false; 
+
+        } 
+
+         
+
+    } 
+
+} 
+
+ 
+
+ 

@@ -28,7 +28,7 @@ public class ManageExplosion : MonoBehaviour
         {
             ObjectClassList myClassObj = new ObjectClassList();
             myClassObj.obj = transform.GetChild(i).gameObject;
-            myClassObj.objDisp = transform.GetChild(i).position - myExplPivot.position ;
+            myClassObj.objDisp = transform.GetChild(i).position - myExplPivot.position;
             Debug.Log(transform.GetChild(i).name + "  "  + myClassObj.objDisp);
             myObjList.Add(myClassObj);
         }
