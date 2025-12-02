@@ -14,9 +14,7 @@ public class FlaskMechanicManager : MonoBehaviour
     //animators
     private Animator flaskAnim;
     private Animator corkAnim;
-
-    //renderer for towels
-    private Renderer towelRend;
+    private Animator faceTowelAnim;
 
     //colliders
     private Collider flaskCollider;
@@ -35,9 +33,9 @@ public class FlaskMechanicManager : MonoBehaviour
             corkAnim = corkObj.GetComponent<Animator>();
         }
 
-        if (faceTowelObj != null)
+        if(faceTowelObj != null)
         {
-            towelRend = faceTowelObj.GetComponent<Renderer>();
+            faceTowelAnim = faceTowelObj.GetComponent<Animator>();
         }
 
         flaskCollider = flaskObj.GetComponent<Collider>();
@@ -58,8 +56,8 @@ public class FlaskMechanicManager : MonoBehaviour
         corkAnim.SetBool("isCorkRemoved", true);
         yield return new WaitForSeconds(1.0f);
         flaskAnim.SetBool("FlaskToEmpty", true);
-        yield return new WaitForSeconds(1.15f);
-        towelRend.material.mainTexture = chloroformedTowel;
+        yield return new WaitForSeconds(1.0f);
+        faceTowelAnim.SetBool("faceTowelIsWet", true);
         
     }
 }

@@ -1962,12 +1962,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 585612500}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -1.54, y: 3.92, z: 1.32}
   m_LocalScale: {x: 0.37735242, y: 2.9092, z: 0.6031355}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1292210673}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &592425933
 GameObject:
@@ -14085,6 +14085,7 @@ Transform:
   - {fileID: 462766759}
   - {fileID: 1183025147}
   - {fileID: 718394717}
+  - {fileID: 585612506}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1314817087
@@ -17429,7 +17430,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8b28fe9a5b12e5444a412402d114c855, type: 2}
+  - {fileID: 2100000, guid: e991eb483dbf95644bf25377e10f438e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -17477,6 +17478,7 @@ GameObject:
   - component: {fileID: 1249052746604493060}
   - component: {fileID: 2808659914541053601}
   - component: {fileID: 80688787680248427}
+  - component: {fileID: 2808659914541053602}
   m_Layer: 0
   m_Name: SM_rag
   m_TagString: Untagged
@@ -18004,6 +18006,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1882036760866087870}
   m_Mesh: {fileID: -4090796778096843068, guid: f5970be66cc15064d918b11ddaf45405, type: 3}
+--- !u!95 &2808659914541053602
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1882036760866087870}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5d5b1c8dfadea384db6d18add2ed48fa, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &2939533082396070793
 Transform:
   m_ObjectHideFlags: 0
@@ -18432,4 +18456,3 @@ SceneRoots:
   - {fileID: 1793435416}
   - {fileID: 1073139187}
   - {fileID: 310277779}
-  - {fileID: 585612506}

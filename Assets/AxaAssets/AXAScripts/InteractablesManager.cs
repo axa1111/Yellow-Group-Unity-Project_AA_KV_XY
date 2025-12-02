@@ -17,6 +17,11 @@ public class InteractablesManager : MonoBehaviour
     public GameObject faceTowelPickedUp;
     public GameObject footTowelPickedUp;
 
+    //bools to track mechanic order
+    private bool timeForFaceTowel = false;
+    private bool timeForFootTowel = false;
+    private bool timeForSaw = false;
+
     //script references
     private FlaskMechanicManager flaskMechanicManagerScript; //acript with method to trigger flask mechanic
 
@@ -41,7 +46,7 @@ public class InteractablesManager : MonoBehaviour
         //using switch instead of lots of if statments
         switch (hitObject.tag)
         {
-            case "Saw": //if the tag is saw the do this
+            case "Saw" when timeForSaw: //if the tag is saw the do this
                 Debug.Log("picked up" + hitObject.name);
                SwapActiveObj(sawTable, sawPickedUp);
                 break;
@@ -51,14 +56,15 @@ public class InteractablesManager : MonoBehaviour
                 flaskMechanicManagerScript.FlaskMechanic(); //trigger the mechanic animation and texture change using this script
                 //lets remove the tag so it cant be triggered again
                 hitObject.tag = "Untagged";
+                timeForFaceTowel = true;
                 break;
 
-            case "FaceTowel": //if the tag is FaceTowel the do this
+            case "FaceTowel" when timeForFaceTowel: //if the tag is FaceTowel the do this && using when clause to ensure bool is true befor executing logic
                 Debug.Log("picked up" + hitObject.name);
                 SwapActiveObj(faceTowelTable, faceTowelPickedUp);
                 break;
 
-            case "FootTowel": //if the tag is FootTowel the do this
+            case "FootTowel" when timeForFootTowel: //if the tag is FootTowel the do this
                 Debug.Log("picked up" + hitObject.name);
                 SwapActiveObj(footTowelTable, footTowelPickedUp);
                 break;
