@@ -51,6 +51,7 @@ public class Script_ManageCamera : MonoBehaviour
             {
                 transform.position = rightFootCameraPos.transform.position;
                 transform.rotation = rightFootCameraPos.rotation;
+                isMoving = false;
                 currentTargetToLookAt = rightFootTarget;
             }
         }
