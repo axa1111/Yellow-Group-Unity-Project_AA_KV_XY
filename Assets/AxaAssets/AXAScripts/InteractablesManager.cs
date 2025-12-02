@@ -4,13 +4,13 @@ public class InteractablesManager : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public GameObject cameraObj; //reference to camera which holds the raycast script
-    private RayCastManager raycastManagerScript; //reference to raycast script so we can acces hit variable
 
     [Header("Interactables on Tables")]
     public GameObject sawTable;
     public GameObject flaskTable;
     public GameObject faceTowelTable;
     public GameObject footTowelTable;
+    public GameObject dampFootTowel;
 
     [Header("Interactables Picked Up")]
     public GameObject sawPickedUp;
@@ -24,11 +24,15 @@ public class InteractablesManager : MonoBehaviour
 
     //script references
     private FlaskMechanicManager flaskMechanicManagerScript; //acript with method to trigger flask mechanic
+    private FootTowelMechanic footTowelMechanicScript;
+    private RayCastManager raycastManagerScript; //reference to raycast script so we can acces hit variable
 
     void Start()
     {
         raycastManagerScript = cameraObj.GetComponent<RayCastManager>(); //getting raycast script
         flaskMechanicManagerScript = GetComponent<FlaskMechanicManager>(); //setting flask mechanic script
+        footTowelMechanicScript = GetComponent<FootTowelMechanic>();
+
     }
 
     // Update is called once per frame
@@ -66,10 +70,15 @@ public class InteractablesManager : MonoBehaviour
 
             case "FootTowel": //if the tag is FootTowel the do this
                 Debug.Log("picked up" + hitObject.name);
-                SwapActiveObj(footTowelTable, footTowelPickedUp);
-                SwapActiveObj(faceTowelTable, footTowelPickedUp);
-                timeForChloroform = true;
+                footTowelMechanicScript.StartDunkingFootTowel();
+                //set this true after the foot is all done timeForChloroform = true;
                 break;
+
+            case "DampFootTowel":
+                Debug.Log("picked up" + hitObject.name);
+                SwapActiveObj(dampFootTowel, footTowelPickedUp);
+                break;
+
 
             default:
                 Debug.Log("" + hitObject.name);

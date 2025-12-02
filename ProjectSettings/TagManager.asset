@@ -10,6 +10,7 @@ TagManager:
   - FootTowel
   - Flask
   - FaceTowel
+  - DampFootTowel
   layers:
   - Default
   - TransparentFX

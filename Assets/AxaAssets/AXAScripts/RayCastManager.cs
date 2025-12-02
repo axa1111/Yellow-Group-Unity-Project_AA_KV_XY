@@ -2,8 +2,7 @@ using UnityEngine;
 
 public class RayCastManager : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject reticule; //referencing the reticule obj
+   
     private float maxDistance = 6f; //setting max distance of ray to 6f
     public RaycastHit hit; //declaring variable RayCastHit as hit
 
@@ -40,15 +39,8 @@ public class RayCastManager : MonoBehaviour
         //checking if ray is hitting somrthing in the scene 
         if (Physics.Raycast(ray, out hit, maxDistance))
         {
-          //  Debug.Log("RaycastHit" + hit.collider.transform.name);
-            if (reticule != null)
-            {
-                //set it active
-                reticule.SetActive(true);
-
-                //move it to the point where the ray hits
-                reticule.transform.position = hit.point;
-            }
+          // Debug.Log("RaycastHit" + hit.collider.transform.name);
+           
             
             for(int i = 0; i <interactableObjects.Length; i++) //looping through all interactable objs
             {
@@ -59,14 +51,7 @@ public class RayCastManager : MonoBehaviour
                 
             } 
         }
-       /* else
-       {
-            //else if the reticule is not null then set it inactive if it doesn't hit anything
-           if (reticule != null)
-            {
-                reticule.SetActive(false);
-            } 
-        }*/
+
          Debug.DrawRay(ray.origin, ray.direction * maxDistance, Color.red); //Debug to draw ray from the camera in scene window
        
 
