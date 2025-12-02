@@ -10,11 +10,10 @@ public class InteractablesManager : MonoBehaviour
     public GameObject sawTable;
     public GameObject flaskTable;
     public GameObject faceTowelTable;
-    public GameObject footTowelTable;   
+    public GameObject footTowelTable;
 
     [Header("Interactables Picked Up")]
     public GameObject sawPickedUp;
-    public GameObject flaskPickedUp;
     public GameObject faceTowelPickedUp; 
     public GameObject footTowelPickedUp;
 
@@ -49,7 +48,6 @@ public class InteractablesManager : MonoBehaviour
 
             case "Flask": //if the tag is flask the do this
                 Debug.Log("picked up" + hitObject.name);
-                SwapActiveObj(flaskTable, flaskPickedUp);
                 break;
 
             case "FaceTowel": //if the tag is FaceTowel the do this
