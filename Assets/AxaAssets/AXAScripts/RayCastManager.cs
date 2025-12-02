@@ -11,7 +11,7 @@ public class RayCastManager : MonoBehaviour
     [Header("Obj to interact with")] //header for neatness
     [SerializeField]
     private GameObject[] interactableObjects;  //array of objs which will be interacted with 0 - set in inspector
-    public HighlightItems[] highlightScripts; //array highlight scripts 
+    private HighlightItems[] highlightScripts; //array highlight scripts 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

@@ -19,7 +19,7 @@ public class InteractablesManager : MonoBehaviour
 
     //bools to track mechanic order
     private bool timeForFaceTowel = false;
-    private bool timeForFootTowel = false;
+    private bool timeForChloroform = false;
     private bool timeForSaw = false;
 
     //script references
@@ -51,7 +51,7 @@ public class InteractablesManager : MonoBehaviour
                SwapActiveObj(sawTable, sawPickedUp);
                 break;
 
-            case "Flask": //if the tag is flask the do this
+            case "Flask" when timeForChloroform: //if the tag is flask the do this
                 Debug.Log("picked up" + hitObject.name);
                 flaskMechanicManagerScript.FlaskMechanic(); //trigger the mechanic animation and texture change using this script
                 //lets remove the tag so it cant be triggered again
@@ -64,9 +64,11 @@ public class InteractablesManager : MonoBehaviour
                 SwapActiveObj(faceTowelTable, faceTowelPickedUp);
                 break;
 
-            case "FootTowel" when timeForFootTowel: //if the tag is FootTowel the do this
+            case "FootTowel": //if the tag is FootTowel the do this
                 Debug.Log("picked up" + hitObject.name);
                 SwapActiveObj(footTowelTable, footTowelPickedUp);
+                SwapActiveObj(faceTowelTable, footTowelPickedUp);
+                timeForChloroform = true;
                 break;
 
             default:
