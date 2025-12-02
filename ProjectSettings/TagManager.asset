@@ -11,6 +11,7 @@ TagManager:
   - Flask
   - FaceTowel
   - DampFootTowel
+  - SoldierLeftFoot
   layers:
   - Default
   - TransparentFX

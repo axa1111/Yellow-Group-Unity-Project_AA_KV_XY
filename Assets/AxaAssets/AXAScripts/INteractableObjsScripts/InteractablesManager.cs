@@ -67,6 +67,11 @@ public class InteractablesManager : MonoBehaviour
                 Debug.Log("picked up" + hitObject.name);
                 SwapActiveObj(faceTowelTable, faceTowelPickedUp);
                 break;
+            
+            /* case "PlayerFace" when timeForPlayerFace;
+            Add in logic to move the towel to the face and remove it and place it back down
+                Debug.Log("picked up" + hitObject.name);
+                break;*/
 
             case "FootTowel": //if the tag is FootTowel the do this
                 Debug.Log("picked up" + hitObject.name);
@@ -77,6 +82,11 @@ public class InteractablesManager : MonoBehaviour
             case "DampFootTowel":
                 Debug.Log("picked up" + hitObject.name);
                 SwapActiveObj(dampFootTowel, footTowelPickedUp);
+                break;
+
+            case "SoldierLeftFoot":
+                Debug.Log("picked up" + hitObject.name);
+                footTowelMechanicScript.MoveDampTowelToFoot();
                 break;
 
 

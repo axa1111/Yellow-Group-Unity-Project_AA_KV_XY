@@ -7891,6 +7891,77 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!1 &863931519
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 863931522}
+  - component: {fileID: 863931521}
+  - component: {fileID: 863931520}
+  m_Layer: 0
+  m_Name: Foot_Left
+  m_TagString: SoldierLeftFoot
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &863931520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 863931519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7c56238956cea2499b684c77049069d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineLayer:
+    serializedVersion: 0
+    m_Bits: 0
+--- !u!136 &863931521
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 863931519}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5425355
+  m_Height: 2.020554
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &863931522
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 863931519}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.026249275, y: -0, z: -0, w: 0.9996555}
+  m_LocalPosition: {x: -1.003538, y: 4.248, z: -2.123}
+  m_LocalScale: {x: 0.73578, y: 0.73578, z: 0.73578}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &942814537
 GameObject:
   m_ObjectHideFlags: 0
@@ -13865,8 +13936,8 @@ GameObject:
   - component: {fileID: 1239909952}
   - component: {fileID: 1239909956}
   m_Layer: 0
-  m_Name: RightFoot
-  m_TagString: Right Foot
+  m_Name: Foot_Left
+  m_TagString: SoldierLeftFoot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13963,33 +14034,21 @@ Transform:
   - {fileID: 1286777223}
   m_Father: {fileID: 647263564}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &1239909956
-Rigidbody:
+--- !u!114 &1239909956
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1239909951}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7c56238956cea2499b684c77049069d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineLayer:
+    serializedVersion: 0
     m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1001 &1256395640
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14589,7 +14648,7 @@ GameObject:
   - component: {fileID: 1503402972}
   - component: {fileID: 1503402976}
   m_Layer: 0
-  m_Name: LeftFoot
+  m_Name: Foot_Right
   m_TagString: Left Foot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14723,29 +14782,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1511110587}
   - component: {fileID: 1511110586}
-  - component: {fileID: 1511110585}
+  - component: {fileID: 1511110588}
   m_Layer: 0
   m_Name: Damp_towel_foot_Obj
   m_TagString: DampFootTowel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1511110585
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1511110584}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7c56238956cea2499b684c77049069d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineLayer:
-    serializedVersion: 0
-    m_Bits: 4
+  m_IsActive: 0
 --- !u!65 &1511110586
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14775,14 +14819,29 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1511110584}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.71, y: 3.118, z: -1.37}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.71, y: 3.118, z: -1.3699999}
   m_LocalScale: {x: 5.5, y: 5.5, z: 5.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 569973860}
   m_Father: {fileID: 988932479}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1511110588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1511110584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7c56238956cea2499b684c77049069d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineLayer:
+    serializedVersion: 0
+    m_Bits: 4
 --- !u!1001 &1576795572
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14859,7 +14918,6 @@ GameObject:
   - component: {fileID: 1583336440}
   - component: {fileID: 1583336439}
   - component: {fileID: 1583336438}
-  - component: {fileID: 1583336437}
   m_Layer: 0
   m_Name: Damp_FootTowel_PickedUp
   m_TagString: FootTowel
@@ -14876,34 +14934,12 @@ Transform:
   m_GameObject: {fileID: 1583336435}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.46, y: -0.09, z: 1.48}
+  m_LocalPosition: {x: 0.653, y: 0.037, z: 1.46}
   m_LocalScale: {x: 0.07635982, y: 1, z: 0.14580321}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2939533082396070793}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &1583336437
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1583336435}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 02b42e53ad5e53948b2133018422b1aa, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &1583336438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15185,7 +15221,8 @@ Cloth:
     collisionSphereDistance: 3.4028235e+38
   - maxDistance: 3.4028235e+38
     collisionSphereDistance: 3.4028235e+38
-  m_CapsuleColliders: []
+  m_CapsuleColliders:
+  - {fileID: 1239909952}
   m_SphereColliders: []
   m_SelfCollisionDistance: 0
   m_SelfCollisionStiffness: 0.2
@@ -15843,7 +15880,7 @@ MonoBehaviour:
   flaskTable: {fileID: 1477535671573883}
   faceTowelTable: {fileID: 8951737140712717767}
   footTowelTable: {fileID: 7417525433319483721}
-  dampFootTowel: {fileID: 1511110584}
+  dampFootTowel: {fileID: 0}
   sawPickedUp: {fileID: 1640260713}
   faceTowelPickedUp: {fileID: 1208121294}
   footTowelPickedUp: {fileID: 1583336435}
@@ -15878,6 +15915,8 @@ MonoBehaviour:
   footTowelTableObj: {fileID: 7417525433319483721}
   footTowelBucketObj: {fileID: 2050943930}
   dampFootTowelTableObj: {fileID: 1511110584}
+  dampFootTowelPickedUp: {fileID: 1583336435}
+  soldiersLeftFoot: {fileID: 863931519}
 --- !u!1 &1802195044
 GameObject:
   m_ObjectHideFlags: 0
@@ -19385,6 +19424,7 @@ MonoBehaviour:
   - {fileID: 7417525433319483721}
   - {fileID: 1477535671573883}
   - {fileID: 1511110584}
+  - {fileID: 863931519}
 --- !u!33 &8470484988291671017
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -19460,3 +19500,4 @@ SceneRoots:
   - {fileID: 1793435416}
   - {fileID: 310277779}
   - {fileID: 770579305}
+  - {fileID: 863931522}

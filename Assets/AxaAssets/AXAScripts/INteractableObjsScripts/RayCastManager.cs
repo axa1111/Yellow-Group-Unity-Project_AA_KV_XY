@@ -16,7 +16,7 @@ public class RayCastManager : MonoBehaviour
     void Start()
     {
         highlightScripts = new HighlightItems[interactableObjects.Length]; //storing it in memory limited to the same size of interactable objects
-
+    
         for(int i = 0; i < interactableObjects.Length; i++) 
         {
             highlightScripts[i] = interactableObjects[i].GetComponent<HighlightItems>(); //filling the array with the highlight script component from each interactable obj in array
