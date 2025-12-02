@@ -14,15 +14,16 @@ public class InteractablesManager : MonoBehaviour
 
     [Header("Interactables Picked Up")]
     public GameObject sawPickedUp;
-    public GameObject faceTowelPickedUp; 
+    public GameObject faceTowelPickedUp;
     public GameObject footTowelPickedUp;
 
-    [Header("Booleans to Track")]    
-    private bool sawIsPickedUp = false;
-    //public GameObject footTowelPickedUp;   
+    //script references
+    private FlaskMechanicManager flaskMechanicManagerScript; //acript with method to trigger flask mechanic
+
     void Start()
     {
         raycastManagerScript = cameraObj.GetComponent<RayCastManager>(); //getting raycast script
+        flaskMechanicManagerScript = GetComponent<FlaskMechanicManager>(); //setting flask mechanic script
     }
 
     // Update is called once per frame
@@ -43,11 +44,13 @@ public class InteractablesManager : MonoBehaviour
             case "Saw": //if the tag is saw the do this
                 Debug.Log("picked up" + hitObject.name);
                SwapActiveObj(sawTable, sawPickedUp);
-               sawIsPickedUp = true;
                 break;
 
             case "Flask": //if the tag is flask the do this
                 Debug.Log("picked up" + hitObject.name);
+                flaskMechanicManagerScript.FlaskMechanic(); //trigger the mechanic animation and texture change using this script
+                //lets remove the tag so it cant be triggered again
+                hitObject.tag = "Untagged";
                 break;
 
             case "FaceTowel": //if the tag is FaceTowel the do this
