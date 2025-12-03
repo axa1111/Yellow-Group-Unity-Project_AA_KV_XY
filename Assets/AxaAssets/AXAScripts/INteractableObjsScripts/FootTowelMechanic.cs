@@ -15,6 +15,7 @@ public class FootTowelMechanic : MonoBehaviour
     public GameObject soldiersLeftFoot;
     public GameObject cameraObj;
     public GameObject tableTowelPos;
+    public GameObject leftFootSoldierHighlightObj;
 
     //speed
     private float speed = 2f;
@@ -33,12 +34,17 @@ public class FootTowelMechanic : MonoBehaviour
     private InteractablesManager interactablesManagerScript;
     private RayCastManager rayCastManagerScript;
 
+    //collider 
+    private Collider dampFootTowelCollider;
+    private Collider leftFootSoldierCollider;
+
     void Start()
     {
         footTowelBucketRend = footTowelBucketObj.GetComponent<Renderer>();
         interactablesManagerScript = GetComponent<InteractablesManager>();
         rayCastManagerScript = cameraObj.GetComponent<RayCastManager>();
         darkYellow = new Color(78 / 255f, 60 / 255f, 0f);
+        leftFootSoldierCollider = leftFootSoldierHighlightObj.GetComponent<CapsuleCollider>();
     }
 
     public void StartDunkingFootTowel()
@@ -81,6 +87,7 @@ public class FootTowelMechanic : MonoBehaviour
         {
             dampFootTowelPickedUp.transform.SetParent(null, true); //setting null to remove the the camera as parent and setting true to keep the position it was in the world space
             isMoving = true;
+            leftFootSoldierCollider.enabled = false;
         }
     }
     
@@ -95,6 +102,8 @@ public class FootTowelMechanic : MonoBehaviour
         }
         dampFootTowelPickedUp.transform.position = tableTowelPos.transform.position;
         interactablesManagerScript.SwapActiveObj(dampFootTowelPickedUp, dampFootTowelTableObj);
+        dampFootTowelCollider = dampFootTowelTableObj.GetComponent<Collider>();
+        dampFootTowelCollider.enabled = false;
         isMoving = false;
         
         

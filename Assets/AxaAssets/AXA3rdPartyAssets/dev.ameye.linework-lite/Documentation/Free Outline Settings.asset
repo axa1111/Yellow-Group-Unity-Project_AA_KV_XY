@@ -31,8 +31,8 @@ MonoBehaviour:
   scaling: 0
   width: 0.5
   minWidth: 0
-  scaleWithResolution: 0
-  referenceResolution: 0
+  scaleWithResolution: 1
+  referenceResolution: 2
   customResolution: 0
   materialType: 0
   customMaterial: {fileID: 0}
@@ -67,8 +67,8 @@ MonoBehaviour:
   scaling: 0
   width: 4
   minWidth: 0
-  scaleWithResolution: 0
-  referenceResolution: 0
+  scaleWithResolution: 1
+  referenceResolution: 2
   customResolution: 0
   materialType: 0
   customMaterial: {fileID: 0}
@@ -103,8 +103,8 @@ MonoBehaviour:
   scaling: 0
   width: 5
   minWidth: 0
-  scaleWithResolution: 0
-  referenceResolution: 0
+  scaleWithResolution: 1
+  referenceResolution: 2
   customResolution: 0
   materialType: 0
   customMaterial: {fileID: 0}
@@ -128,6 +128,7 @@ MonoBehaviour:
   - {fileID: -4608723715187877214}
   - {fileID: -9145243762339938737}
   - {fileID: 3271064893417533056}
+  - {fileID: 7793177829843391332}
 --- !u!114 &3271064893417533056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,8 +160,8 @@ MonoBehaviour:
   scaling: 0
   width: 6.7
   minWidth: 0
-  scaleWithResolution: 0
-  referenceResolution: 0
+  scaleWithResolution: 1
+  referenceResolution: 2
   customResolution: 0
   materialType: 0
   customMaterial: {fileID: 0}
@@ -195,8 +196,44 @@ MonoBehaviour:
   scaling: 0
   width: 5
   minWidth: 0
-  scaleWithResolution: 0
-  referenceResolution: 0
+  scaleWithResolution: 1
+  referenceResolution: 2
+  customResolution: 0
+  materialType: 0
+  customMaterial: {fileID: 0}
+--- !u!114 &7793177829843391332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca2cb9e9790a941d3b51ae2615e6e1bd, type: 3}
+  m_Name: Outline
+  m_EditorClassIdentifier: 
+  material: {fileID: 0}
+  isActive: 1
+  RenderingLayer:
+    serializedVersion: 0
+    m_Bits: 64
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  renderQueue: 0
+  occlusion: 0
+  maskingStrategy: 0
+  color: {r: 1, g: 0.99215686, b: 0, a: 1}
+  enableOcclusion: 0
+  occludedColor: {r: 1, g: 0, b: 0, a: 1}
+  blendMode: 0
+  extrusionMethod: 0
+  scaling: 0
+  width: 9.7
+  minWidth: 0
+  scaleWithResolution: 1
+  referenceResolution: 2
   customResolution: 0
   materialType: 0
   customMaterial: {fileID: 0}

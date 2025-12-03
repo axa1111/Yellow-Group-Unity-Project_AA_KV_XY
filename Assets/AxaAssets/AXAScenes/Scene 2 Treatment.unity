@@ -13713,7 +13713,9 @@ Cloth:
   - maxDistance: 3.4028235e+38
     collisionSphereDistance: 3.4028235e+38
   m_CapsuleColliders: []
-  m_SphereColliders: []
+  m_SphereColliders:
+  - first: {fileID: 1748073544}
+    second: {fileID: 0}
   m_SelfCollisionDistance: 0
   m_SelfCollisionStiffness: 0.2
   m_SelfAndInterCollisionIndices: 
@@ -15649,6 +15651,7 @@ GameObject:
   - component: {fileID: 1748073546}
   - component: {fileID: 1748073545}
   - component: {fileID: 1748073544}
+  - component: {fileID: 1748073547}
   m_Layer: 0
   m_Name: Head_Sphere
   m_TagString: Untagged
@@ -15745,6 +15748,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1748073542}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1748073547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1748073542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7c56238956cea2499b684c77049069d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineLayer:
+    serializedVersion: 0
+    m_Bits: 0
 --- !u!1 &1793435415
 GameObject:
   m_ObjectHideFlags: 0
@@ -15757,6 +15775,7 @@ GameObject:
   - component: {fileID: 1793435417}
   - component: {fileID: 1793435418}
   - component: {fileID: 1793435419}
+  - component: {fileID: 1793435420}
   m_Layer: 0
   m_Name: Interactables_Parent
   m_TagString: Untagged
@@ -15838,6 +15857,22 @@ MonoBehaviour:
   soldiersLeftFoot: {fileID: 1270910196}
   cameraObj: {fileID: 4136690641260424228}
   tableTowelPos: {fileID: 1240643240}
+  leftFootSoldierHighlightObj: {fileID: 1239909951}
+--- !u!114 &1793435420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1793435415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 844b56c293cae2b458b816c3f9d2a0b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  faceTowelPickedUpObj: {fileID: 1208121294}
+  facePositionObj: {fileID: 1748073542}
+  faceTowelOnTableObj: {fileID: 8951737140712717767}
 --- !u!1 &1802195044
 GameObject:
   m_ObjectHideFlags: 0

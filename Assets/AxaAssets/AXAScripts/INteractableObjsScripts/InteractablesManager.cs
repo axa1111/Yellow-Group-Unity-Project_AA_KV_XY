@@ -18,20 +18,23 @@ public class InteractablesManager : MonoBehaviour
     public GameObject footTowelPickedUp;
 
     //bools to track mechanic order
-    private bool timeForFaceTowel = false;
+    private bool pickUpFaceTowel = false;
     private bool timeForChloroform = false;
     private bool timeForSaw = false;
+    private bool putTowelOnFace = false;
 
     //script references
     private FlaskMechanicManager flaskMechanicManagerScript; //acript with method to trigger flask mechanic
     private FootTowelMechanic footTowelMechanicScript;
     private RayCastManager raycastManagerScript; //reference to raycast script so we can acces hit variable
+    private FaceTowelMechanic faceTowelMechanicScript;
 
     void Start()
     {
         raycastManagerScript = cameraObj.GetComponent<RayCastManager>(); //getting raycast script
         flaskMechanicManagerScript = GetComponent<FlaskMechanicManager>(); //setting flask mechanic script
         footTowelMechanicScript = GetComponent<FootTowelMechanic>();
+        faceTowelMechanicScript = GetComponent<FaceTowelMechanic>();
 
     }
 
@@ -50,9 +53,22 @@ public class InteractablesManager : MonoBehaviour
         //using switch instead of lots of if statments
         switch (hitObject.tag)
         {
-            case "Saw" when timeForSaw: //if the tag is saw the do this
+             case "FootTowel": //if the tag is FootTowel the do this
                 Debug.Log("picked up" + hitObject.name);
-               SwapActiveObj(sawTable, sawPickedUp);
+                footTowelMechanicScript.StartDunkingFootTowel();
+                break;
+
+            case "DampFootTowel":
+                Debug.Log("picked up" + hitObject.name);
+                SwapActiveObj(dampFootTowel, footTowelPickedUp);
+                hitObject.tag = "Untagged";
+                break;
+
+            case "SoldierLeftFoot":
+                Debug.Log("picked up" + hitObject.name);
+                footTowelMechanicScript.MoveDampTowelToFoot();
+                hitObject.tag = "Untagged";
+                timeForChloroform = true;
                 break;
 
             case "Flask" when timeForChloroform: //if the tag is flask the do this
@@ -60,36 +76,25 @@ public class InteractablesManager : MonoBehaviour
                 flaskMechanicManagerScript.FlaskMechanic(); //trigger the mechanic animation and texture change using this script
                 //lets remove the tag so it cant be triggered again
                 hitObject.tag = "Untagged";
-                timeForFaceTowel = true;
+                pickUpFaceTowel = true;
                 break;
 
-            case "FaceTowel" when timeForFaceTowel: //if the tag is FaceTowel the do this && using when clause to ensure bool is true befor executing logic
+            case "FaceTowel" when pickUpFaceTowel: //if the tag is FaceTowel the do this && using when clause to ensure bool is true befor executing logic
                 Debug.Log("picked up" + hitObject.name);
                 SwapActiveObj(faceTowelTable, faceTowelPickedUp);
+                hitObject.tag = "Untagged";
+                putTowelOnFace = true;
                 break;
             
-            /* case "PlayerFace" when timeForPlayerFace;
-            Add in logic to move the towel to the face and remove it and place it back down
+            case "PlayerFace" when putTowelOnFace:
                 Debug.Log("picked up" + hitObject.name);
-                break;*/
-
-            case "FootTowel": //if the tag is FootTowel the do this
-                Debug.Log("picked up" + hitObject.name);
-                footTowelMechanicScript.StartDunkingFootTowel();
-                //set this true after the foot is all done timeForChloroform = true;
+                faceTowelMechanicScript.MoveTowelToFace();
                 break;
-
-            case "DampFootTowel":
+            
+            case "Saw" when timeForSaw: //if the tag is saw the do this
                 Debug.Log("picked up" + hitObject.name);
-                SwapActiveObj(dampFootTowel, footTowelPickedUp);
+               SwapActiveObj(sawTable, sawPickedUp);
                 break;
-
-            case "SoldierLeftFoot":
-                Debug.Log("picked up" + hitObject.name);
-                footTowelMechanicScript.MoveDampTowelToFoot();
-                hitObject.tag = "Untagged";
-                break;
-
 
             default:
                 Debug.Log("" + hitObject.name);
