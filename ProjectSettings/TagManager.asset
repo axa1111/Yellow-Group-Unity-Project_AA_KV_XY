@@ -12,6 +12,7 @@ TagManager:
   - FaceTowel
   - DampFootTowel
   - SoldierLeftFoot
+  - PlayerFace
   layers:
   - Default
   - TransparentFX
