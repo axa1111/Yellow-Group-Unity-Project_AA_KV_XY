@@ -87,6 +87,7 @@ public class InteractablesManager : MonoBehaviour
             case "SoldierLeftFoot":
                 Debug.Log("picked up" + hitObject.name);
                 footTowelMechanicScript.MoveDampTowelToFoot();
+                hitObject.tag = "Untagged";
                 break;
 
 

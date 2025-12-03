@@ -1,5 +1,5 @@
 using System.Collections;
-using System.ComponentModel;
+using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
 
@@ -13,9 +13,12 @@ public class FootTowelMechanic : MonoBehaviour
     public GameObject dampFootTowelTableObj;
     public GameObject dampFootTowelPickedUp;
     public GameObject soldiersLeftFoot;
+    public GameObject cameraObj;
+    public GameObject tableTowelPos;
 
     //speed
     private float speed = 2f;
+    private float returnSpeed = 0.01f;
 
     //bool 
     private bool isMoving = false;
@@ -24,16 +27,17 @@ public class FootTowelMechanic : MonoBehaviour
     //colour 
     private Color darkYellow;
     //Renderer
-
     private Renderer footTowelBucketRend;
 
     //Scripts
     private InteractablesManager interactablesManagerScript;
+    private RayCastManager rayCastManagerScript;
 
     void Start()
     {
         footTowelBucketRend = footTowelBucketObj.GetComponent<Renderer>();
         interactablesManagerScript = GetComponent<InteractablesManager>();
+        rayCastManagerScript = cameraObj.GetComponent<RayCastManager>();
         darkYellow = new Color(78 / 255f, 60 / 255f, 0f);
     }
 
@@ -51,6 +55,8 @@ public class FootTowelMechanic : MonoBehaviour
         footTowelBucketRend.material.SetColor("_Color", darkYellow);
         yield return new WaitForSeconds(2.5f);
         interactablesManagerScript.SwapActiveObj(footTowelBucketObj, dampFootTowelTableObj);
+        rayCastManagerScript.AddInteractable(dampFootTowelTableObj);//adding the damp towel as it is set active later on in the game
+
 
     }
 
@@ -63,12 +69,12 @@ public class FootTowelMechanic : MonoBehaviour
 
             if (Vector3.Distance(dampFootTowelPickedUp.transform.position, soldiersLeftFoot.transform.position) < 0.01f)
             {
+                StartCoroutine(clothDampFootTowelToggle());
                 dampFootTowelPickedUp.transform.position = soldiersLeftFoot.transform.position;
-                isMoving = false;
             }
         }
     }
-    
+
     public void MoveDampTowelToFoot()
     {
         if (dampFootTowelPickedUp != null)
@@ -76,5 +82,21 @@ public class FootTowelMechanic : MonoBehaviour
             dampFootTowelPickedUp.transform.SetParent(null, true); //setting null to remove the the camera as parent and setting true to keep the position it was in the world space
             isMoving = true;
         }
+    }
+    
+    private IEnumerator clothDampFootTowelToggle()
+    {
+        yield return new WaitForSeconds(2f);
+
+        while (Vector3.Distance(dampFootTowelPickedUp.transform.position, tableTowelPos.transform.position) > 0.01f)
+        {
+            dampFootTowelPickedUp.transform.position = Vector3.MoveTowards(dampFootTowelPickedUp.transform.position, tableTowelPos.transform.position, returnSpeed * Time.deltaTime);
+            yield return null;
+        }
+        dampFootTowelPickedUp.transform.position = tableTowelPos.transform.position;
+        interactablesManagerScript.SwapActiveObj(dampFootTowelPickedUp, dampFootTowelTableObj);
+        isMoving = false;
+        
+        
     }
 }

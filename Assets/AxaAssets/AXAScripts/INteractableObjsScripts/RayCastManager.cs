@@ -1,59 +1,96 @@
+using System.Collections.Generic;
 using UnityEngine;
 
+//it was first using arrays and the had t change to list as items would be added afer
 public class RayCastManager : MonoBehaviour
 {
-   
+
     private float maxDistance = 6f; //setting max distance of ray to 6f
     public RaycastHit hit; //declaring variable RayCastHit as hit
 
 
     [Header("Obj to interact with")] //header for neatness
     [SerializeField]
-    private GameObject[] interactableObjects;  //array of objs which will be interacted with 0 - set in inspector
-    private HighlightItems[] highlightScripts; //array highlight scripts 
+    private List<GameObject> interactableObjects = new List<GameObject>();
+    private List<HighlightItems> highlightItems = new List<HighlightItems>();
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        highlightScripts = new HighlightItems[interactableObjects.Length]; //storing it in memory limited to the same size of interactable objects
-    
-        for(int i = 0; i < interactableObjects.Length; i++) 
+        highlightItems.Clear();
+
+        for (int i = 0; i < interactableObjects.Count; i++)
         {
-            highlightScripts[i] = interactableObjects[i].GetComponent<HighlightItems>(); //filling the array with the highlight script component from each interactable obj in array
-            highlightScripts[i].enabled = true; //setting the scripts to be enabled
+
+            if (!interactableObjects[i].activeInHierarchy)
+                continue;
+
+            HighlightItems h = interactableObjects[i].GetComponent<HighlightItems>();
+
+            if (h == null)
+                continue;
+
+            highlightItems.Add(h);
         }
     }
 
-    // Update is called once per frame
+
     void Update()
     {
-        //we loop through all the interactable objs and ensure the outline is turned off, this method is accessed through each obj's highlight script
-        //we turn it off here so it is only on when the ray is actually hitting the objs collider 
-        for (int i = 0; i < interactableObjects.Length; i++)
+        for (int i = 0; i < highlightItems.Count; i++)
         {
-            highlightScripts[i].TurnOutlineOff();
-        } 
-            
-        Ray ray = new Ray(transform.position, transform.forward); // creating ray then setting ray direction to forward
+            if (highlightItems[i] == null)
+                continue;
 
-        //checking if ray is hitting somrthing in the scene 
-        if (Physics.Raycast(ray, out hit, maxDistance))
-        {
-          // Debug.Log("RaycastHit" + hit.collider.transform.name);
-           
-            
-            for(int i = 0; i <interactableObjects.Length; i++) //looping through all interactable objs
-            {
-                if (hit.collider.gameObject == interactableObjects[i]) //checking if the ray hit any of their colliders
-                {
-                    highlightScripts[i].TurnOutlineOn(); //if so we turn their outlines on
-                }
-                
-            } 
+            if (!highlightItems[i].gameObject.activeInHierarchy)
+                continue;
+
+            highlightItems[i].TurnOutlineOff();
         }
 
-         Debug.DrawRay(ray.origin, ray.direction * maxDistance, Color.red); //Debug to draw ray from the camera in scene window
-       
+        Ray ray = new Ray(transform.position, transform.forward); // creating ray then setting ray direction to forward
+
+        if (Physics.Raycast(ray, out hit, maxDistance))
+        {
+            // Debug.Log("RaycastHit" + hit.collider.transform.name);
+
+            for (int i = 0; i < highlightItems.Count; i++) //looping through all interactable objs
+            {
+                if (highlightItems[i] == null)
+                    continue; //keep going if one of the objs is inactive  
+
+                if (!highlightItems[i].gameObject.activeInHierarchy)
+                    continue; //keep going if one of the highlights scripts is inactive
+
+                if (hit.collider.gameObject == highlightItems[i].gameObject) //checking if the ray hit any of their colliders
+                {
+                    highlightItems[i].TurnOutlineOn(); //if so we turn their outlines on
+                }
+
+            }
+
+        }
+        Debug.DrawRay(ray.origin, ray.direction * maxDistance, Color.red); //Debug to draw ray from the camera in scene window
 
     }
+
+
+    public void AddInteractable(GameObject obj)
+    {
+        if (!interactableObjects.Contains(obj))
+        {
+            interactableObjects.Add(obj);
+        }
+
+        HighlightItems h = obj.GetComponent<HighlightItems>();
+
+        if (h == null)
+            return;
+
+        highlightItems.Add(h);
+    }
+
+
 }
+    
+
