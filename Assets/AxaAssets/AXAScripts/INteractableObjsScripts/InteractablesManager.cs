@@ -30,6 +30,7 @@ public class InteractablesManager : MonoBehaviour
     private FootTowelMechanic footTowelMechanicScript;
     private RayCastManager raycastManagerScript; //reference to raycast script so we can acces hit variable
     private FaceTowelMechanic faceTowelMechanicScript;
+    private SawMechanic sawMechanicScript;
 
     void Start()
     {
@@ -37,6 +38,7 @@ public class InteractablesManager : MonoBehaviour
         flaskMechanicManagerScript = GetComponent<FlaskMechanicManager>(); //setting flask mechanic script
         footTowelMechanicScript = GetComponent<FootTowelMechanic>();
         faceTowelMechanicScript = GetComponent<FaceTowelMechanic>();
+        sawMechanicScript=GetComponent<SawMechanic>();
 
     }
 
@@ -104,6 +106,7 @@ public class InteractablesManager : MonoBehaviour
 
             case "SoldierRightFoot" when putSawOnRightFoot:
                 Debug.Log("picked up" + hitObject.name);
+                sawMechanicScript.MoveSawToFoot();
                 hitObject.tag = "Untagged";
                 break;
 

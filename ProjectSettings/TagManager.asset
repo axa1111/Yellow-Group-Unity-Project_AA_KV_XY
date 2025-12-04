@@ -12,6 +12,7 @@ TagManager:
   - SoldierLeftFoot
   - PlayerFace
   - SoldierRightFoot
+  - SawPickedUp
   layers:
   - Default
   - TransparentFX
