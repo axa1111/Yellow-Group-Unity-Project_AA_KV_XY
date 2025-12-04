@@ -40,7 +40,7 @@ public class Quizmanager : MonoBehaviour
         {
             Debug.Log(myQuestionIndex);
             finalPanel.SetActive(true);
-            finalPanel.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Your Score is " + score;
+            finalPanel.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "Score is " + score;
         }
     }
 }
