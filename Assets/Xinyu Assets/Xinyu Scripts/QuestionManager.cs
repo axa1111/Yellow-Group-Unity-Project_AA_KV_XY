@@ -51,6 +51,16 @@ public class QuestionManager : MonoBehaviour
                 negativeFeedback.SetActive(true);
                 //show negative feedback
             }
+            /*// 在确认答案后，启用Next按钮
+            if (myQuizManagerScript != null)
+            {
+                myQuizManagerScript.EnableNextButton();
+            }
+            else
+            {
+                Debug.LogError("myQuizManagerScript为空！");
+            }*/
+
         }
         else
         {
