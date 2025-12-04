@@ -22,6 +22,7 @@ public class InteractablesManager : MonoBehaviour
     private bool timeForChloroform = false;
     private bool timeForSaw = false;
     private bool putTowelOnFace = false;
+    private bool putTowelOnSoldierFoot = false;
 
     //script references
     private FlaskMechanicManager flaskMechanicManagerScript; //acript with method to trigger flask mechanic
@@ -62,9 +63,10 @@ public class InteractablesManager : MonoBehaviour
                 Debug.Log("picked up" + hitObject.name);
                 SwapActiveObj(dampFootTowel, footTowelPickedUp);
                 hitObject.tag = "Untagged";
+                putTowelOnSoldierFoot = true;
                 break;
 
-            case "SoldierLeftFoot":
+            case "SoldierLeftFoot" when putTowelOnSoldierFoot:
                 Debug.Log("picked up" + hitObject.name);
                 footTowelMechanicScript.MoveDampTowelToFoot();
                 hitObject.tag = "Untagged";
@@ -89,11 +91,13 @@ public class InteractablesManager : MonoBehaviour
             case "PlayerFace" when putTowelOnFace:
                 Debug.Log("picked up" + hitObject.name);
                 faceTowelMechanicScript.MoveTowelToFace();
+                timeForSaw = true;
                 break;
             
             case "Saw" when timeForSaw: //if the tag is saw the do this
                 Debug.Log("picked up" + hitObject.name);
-               SwapActiveObj(sawTable, sawPickedUp);
+                SwapActiveObj(sawTable, sawPickedUp);
+                hitObject.tag = "Untagged";
                 break;
 
             default:
