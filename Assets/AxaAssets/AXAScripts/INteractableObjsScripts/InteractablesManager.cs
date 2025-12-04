@@ -23,6 +23,7 @@ public class InteractablesManager : MonoBehaviour
     private bool timeForSaw = false;
     private bool putTowelOnFace = false;
     private bool putTowelOnSoldierFoot = false;
+    private bool putSawOnRightFoot = false;
 
     //script references
     private FlaskMechanicManager flaskMechanicManagerScript; //acript with method to trigger flask mechanic
@@ -97,6 +98,12 @@ public class InteractablesManager : MonoBehaviour
             case "Saw" when timeForSaw: //if the tag is saw the do this
                 Debug.Log("picked up" + hitObject.name);
                 SwapActiveObj(sawTable, sawPickedUp);
+                hitObject.tag = "Untagged";
+                putSawOnRightFoot = true;
+                break;
+
+            case "SoldierRightFoot" when putSawOnRightFoot:
+                Debug.Log("picked up" + hitObject.name);
                 hitObject.tag = "Untagged";
                 break;
 

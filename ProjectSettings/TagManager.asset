@@ -4,8 +4,6 @@
 TagManager:
   serializedVersion: 3
   tags:
-  - Left Foot
-  - Right Foot
   - Saw
   - FootTowel
   - Flask
@@ -13,6 +11,7 @@ TagManager:
   - DampFootTowel
   - SoldierLeftFoot
   - PlayerFace
+  - SoldierRightFoot
   layers:
   - Default
   - TransparentFX
@@ -58,4 +57,5 @@ TagManager:
   - Bottle Outline
   - Left Foot Outline
   - Mouth Outline
-  - Light Layer 4
+  - Right Foot Outline
+  - Light Layer
