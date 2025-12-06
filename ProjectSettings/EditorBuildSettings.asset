@@ -8,6 +8,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/AxaAssets/AXAScenes/MainMenu.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/KvAssets/Scenes/Diagnosis_Scene_KV.unity
+    guid: 7f58b787e3c512047a2f88c06cfff7de
+  - enabled: 1
+    path: Assets/AxaAssets/AXAScenes/Treatment_Scene_Aqsa.unity
+    guid: 068ad4d04cc998848ba2f53e538a4c31
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

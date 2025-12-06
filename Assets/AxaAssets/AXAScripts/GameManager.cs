@@ -1,12 +1,24 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 /* this script manages the scene changes throughout the game */
-public class GameSceneManager : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
+    public static GameManager instance = null;
     public GameObject backToMainMenuPanel;
     private GameObject mainCamera;
     private PlayerMovement playerMovementScript;
-    
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+    }
     public void Quit()
     {
         Application.Quit();
@@ -15,10 +27,10 @@ public class GameSceneManager : MonoBehaviour
     }
 
     //this function is called using the onclick section of the play button in the main menu
-    public void Play()
+    public void BeginGame()
     {
-        //loading the main scene
-        SceneManager.LoadScene("DiagnosisSceneName");
+        //loading the first scene
+        SceneManager.LoadScene("Diagnosis_Scene_KV");
     }
 
     //function directing player back to the main menu scene
@@ -46,14 +58,11 @@ public class GameSceneManager : MonoBehaviour
 
         }
     }
-    
-    public void ReturnToTreatmentScene()
-    {
-        Cursor.visible = true;
-        if (mainCamera != null)
-            {
-                playerMovementScript.enabled = false;
-            }
-    }
 
+//method to call in other scripts where scene will be specified 
+    public void SwitchScenes(string nextScene)
+    {
+        SceneManager.LoadScene(nextScene);
+
+    }
 }
