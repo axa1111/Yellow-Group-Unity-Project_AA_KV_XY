@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/AxaAssets/AXA3rdPartyAssets/AllSkyFree/_AllSkyFreeDemoEnvironment/Materials/Landscape.mat.meta
 guid: d5c8475d1e86cc64f86cdce91f0021a6
+========
+guid: bb4761492228ae3408f3726172c6bcc1
+>>>>>>>> KV:Assets/KvAssets/AqsaScripts/Aqsa3DAssetAnd Packages/Magnifying Glass 3rd party/MagnifyingGlass_MAT.mat.meta
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 2100000

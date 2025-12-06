@@ -1,5 +1,10 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/AxaAssets/AXA3rdPartyAssets/SpawnCampGames/WalkieTalkie/Scenes/WalkieDemo.unity.meta
 guid: 77d7664459023c143bdb2712c05704d8
+========
+guid: 243e06394e614e5d99fab26083b707fa
+folderAsset: yes
+>>>>>>>> KV:Assets/TextMesh Pro/Resources.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

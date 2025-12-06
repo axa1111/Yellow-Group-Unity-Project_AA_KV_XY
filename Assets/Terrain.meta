@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Terrain.meta
 guid: 06a0a137d3f80dc439f0e90b6c3fb38a
+========
+guid: 6ab70aee4d56447429c680537fbf93ed
+>>>>>>>> KV:Assets/TextMesh Pro/Fonts.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

@@ -7,7 +7,11 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<<< HEAD:Assets/AxaAssets/AXA3rdPartyAssets/AllSkyFree/_AllSkyFreeDemoEnvironment/Materials/Landscape.mat
   m_Name: Landscape
+========
+  m_Name: MAT_BacteriaGreen
+>>>>>>>> KV:Assets/KvAssets/Materials/MAT_BacteriaGreen.mat
   m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -115,13 +119,22 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
+<<<<<<<< HEAD:Assets/AxaAssets/AXA3rdPartyAssets/AllSkyFree/_AllSkyFreeDemoEnvironment/Materials/Landscape.mat
     - _BaseColor: {r: 0.16632795, g: 0.22592068, b: 0.37574953, a: 1}
     - _Color: {r: 0.16632792, g: 0.22592065, b: 0.3757495, a: 1}
+========
+    - _BaseColor: {r: 0.1959254, g: 0.2735849, b: 0.02710039, a: 1}
+    - _Color: {r: 0.19592535, g: 0.27358484, b: 0.02710039, a: 1}
+>>>>>>>> KV:Assets/KvAssets/Materials/MAT_BacteriaGreen.mat
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
+<<<<<<<< HEAD:Assets/AxaAssets/AXA3rdPartyAssets/AllSkyFree/_AllSkyFreeDemoEnvironment/Materials/Landscape.mat
 --- !u!114 &7272591256202420930
+========
+--- !u!114 &3935635925306781481
+>>>>>>>> KV:Assets/KvAssets/Materials/MAT_BacteriaGreen.mat
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
