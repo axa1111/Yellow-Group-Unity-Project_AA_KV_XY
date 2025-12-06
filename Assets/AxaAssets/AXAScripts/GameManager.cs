@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance = null;
-    public GameObject backToMainMenuPanel;
+    private GameObject backToMainMenuPanel;
     private GameObject mainCamera;
     private PlayerMovement playerMovementScript;
     void Awake()
@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
             return;
         }
     }
+
+
     public void Quit()
     {
         Application.Quit();
@@ -41,28 +43,41 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        //when pressed escape key
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (SceneManager.GetActiveScene().name == "Treatment")
+            //if we havent found main menu panel and we're not in the main menu scene where it doesnt exist 
+            if(backToMainMenuPanel == null && SceneManager.GetActiveScene().name != "MainMenu")
             {
-                backToMainMenuPanel.SetActive(true);
-                Cursor.visible = true;
-                mainCamera = GameObject.FindWithTag("MainCamera");
-                if (mainCamera != null)
-                {
-                    playerMovementScript = mainCamera.GetComponent<PlayerMovement>();
-                    playerMovementScript.enabled = false;
-                }
+                //look for the objext tagged backToMainMenuPanel and set the gameobject backToMainMenuPanel to the obj in scene with the tag
+                backToMainMenuPanel = GameObject.FindGameObjectWithTag("backToMainMenuPanel");
             }
+            else if (backToMainMenuPanel !=null) //if its already been set
+           {
+                backToMainMenuPanel.SetActive(true);//turn the panel on
 
-
+                if(SceneManager.GetActiveScene().name != "Treatment_Scene_Aqsa")//if the scene we are in is the treatment scene
+                {
+                    Cursor.visible = true; //show the cursor (this is important for the treatment scene)
+                    mainCamera = GameObject.FindWithTag("MainCamera"); //find the main camera
+                    if (mainCamera != null)//if its found
+                    {
+                        //get the player movement script
+                        playerMovementScript = mainCamera.GetComponent<PlayerMovement>();
+                        //disable it
+                        playerMovementScript.enabled = false;
+                    }
+                }
+           }
         }
     }
 
-//method to call in other scripts where scene will be specified 
+    //method to call in other scripts where scene will be specified 
     public void SwitchScenes(string nextScene)
     {
         SceneManager.LoadScene(nextScene);
 
     }
+    
+    //SceneManager.GetActiveScene().name == "Treatment"
 }

@@ -16,7 +16,7 @@ public class ChangeSceneFadePanel : MonoBehaviour
     
     private IEnumerator WaitToFadeTillNextScene()
     {
-        yield return new WaitForSeconds(0.9f);
+        yield return new WaitForSeconds(1f);
         {
             GameManager.instance.SwitchScenes(sceneToLoad);
         }
