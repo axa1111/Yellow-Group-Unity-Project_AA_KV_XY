@@ -1,6 +1,6 @@
 using UnityEngine;
 using System.Collections;
-using System;
+using UnityEngine.SceneManagement;
 public class ChangeSceneFadePanel : MonoBehaviour
 {
     public string sceneToLoad;

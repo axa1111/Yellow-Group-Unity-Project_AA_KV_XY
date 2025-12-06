@@ -4,7 +4,7 @@ public class DialogSceneController : MonoBehaviour
 {
     public GameObject[] dialogs; // 当前场景的所有对话框
     private int currentIndex = 0;
-    public SceneManager sceneManager; // 引用主场景管理器
+    public SceneController sceneController; // 引用主场景管理器
     
     void Start()
     {
@@ -34,13 +34,13 @@ public class DialogSceneController : MonoBehaviour
     // 根据当前场景决定切换到哪个场景
     void SwitchToNextScene()
     {
-        if (this.gameObject == sceneManager.scene1)
+        if (this.gameObject == sceneController.scene1)
         {
-            sceneManager.GoToScene2();
+            sceneController.GoToScene2();
         }
-        else if (this.gameObject == sceneManager.scene2)
+        else if (this.gameObject == sceneController.scene2)
         {
-            sceneManager.GoToScene3();
+            sceneController.GoToScene3();
         }
     }
 }

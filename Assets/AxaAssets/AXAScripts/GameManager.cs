@@ -1,12 +1,15 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 /* this script manages the scene changes throughout the game */
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance = null;
-    private GameObject backToMainMenuPanel;
+    public GameObject backToMainMenuPanel;
     private GameObject mainCamera;
     private PlayerMovement playerMovementScript;
+    public GameObject fadeInPanel;
+    private CanvasGroup canvasGroupComponent;
     void Awake()
     {
         if (instance == null)
@@ -18,7 +21,15 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+
+        DontDestroyOnLoad(this);
     }
+
+    void Start()
+    {
+        canvasGroupComponent = backToMainMenuPanel.GetComponent<CanvasGroup>();
+    }
+
 
 
     public void Quit()
@@ -33,6 +44,8 @@ public class GameManager : MonoBehaviour
     {
         //loading the first scene
         SceneManager.LoadScene("Diagnosis_Scene_KV");
+        FadeThePanel();
+       
     }
 
     //function directing player back to the main menu scene
@@ -47,16 +60,12 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             //if we havent found main menu panel and we're not in the main menu scene where it doesnt exist 
-            if(backToMainMenuPanel == null && SceneManager.GetActiveScene().name != "MainMenu")
-            {
-                //look for the objext tagged backToMainMenuPanel and set the gameobject backToMainMenuPanel to the obj in scene with the tag
-                backToMainMenuPanel = GameObject.FindGameObjectWithTag("backToMainMenuPanel");
-            }
-            else if (backToMainMenuPanel !=null) //if its already been set
+            if(SceneManager.GetActiveScene().name != "MainMenu")
            {
                 backToMainMenuPanel.SetActive(true);//turn the panel on
+                canvasGroupComponent.blocksRaycasts = true;
 
-                if(SceneManager.GetActiveScene().name != "Treatment_Scene_Aqsa")//if the scene we are in is the treatment scene
+                if(SceneManager.GetActiveScene().name == "Treatment_Scene_Aqsa")//if the scene we are in is the treatment scene
                 {
                     Cursor.visible = true; //show the cursor (this is important for the treatment scene)
                     mainCamera = GameObject.FindWithTag("MainCamera"); //find the main camera
@@ -76,7 +85,46 @@ public class GameManager : MonoBehaviour
     public void SwitchScenes(string nextScene)
     {
         SceneManager.LoadScene(nextScene);
+        StartCoroutine(fadeInPanelToggle());
 
+    }
+
+    //created coRoutine so we could wait till the scene loaded to set the fade panel active
+    private IEnumerator fadeInPanelToggle()
+    {
+        yield return null;
+        //if we're in the main menu
+        if (SceneManager.GetActiveScene().name == "MainMenu")
+        {
+            //turn to fade panel off
+            fadeInPanel.SetActive(false);
+        }
+        else
+        {
+            //turn it on 
+            fadeInPanel.SetActive(true);
+        }
+        yield return new WaitForSeconds(1f);
+        {
+            fadeInPanel.SetActive(false); //then turn it off again
+        }
+
+    }
+
+    public void FadeThePanel()
+    {
+         StartCoroutine(fadeInPanelToggle());
+    }
+    
+    public void CloseBackToMainMenuPanel()
+    {
+        if(backToMainMenuPanel != null)
+        {
+            if(backToMainMenuPanel.activeSelf)
+            {
+                backToMainMenuPanel.SetActive(false);
+            }
+        }
     }
     
     //SceneManager.GetActiveScene().name == "Treatment"

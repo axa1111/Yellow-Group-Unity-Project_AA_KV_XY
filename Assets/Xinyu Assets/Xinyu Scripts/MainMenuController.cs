@@ -2,20 +2,20 @@ using UnityEngine;
 
 public class MainMenuController : MonoBehaviour
 {
-    public SceneManager sceneManager;
+    public SceneController sceneController;
     
     public void OnRehabilitationClick()
     {
-        sceneManager.GoToScene5();
+        sceneController.GoToScene5();
     }
     
     public void OnMuscleClick()
     {
-        sceneManager.GoToScene6();
+        sceneController.GoToScene6();
     }
     
     public void OnQuizClick()
     {
-        sceneManager.GoToScene7();
+        sceneController.GoToScene7();
     }
 }

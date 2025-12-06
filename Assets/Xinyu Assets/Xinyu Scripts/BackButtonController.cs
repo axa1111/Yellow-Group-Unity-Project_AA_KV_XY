@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class BackButtonController : MonoBehaviour
 {
-    public SceneManager sceneManager;
+    public SceneController sceneController;
     
     public void OnBackClick()
     {
-        sceneManager.GoToScene4();
+        sceneController.GoToScene4();
     }
 }
