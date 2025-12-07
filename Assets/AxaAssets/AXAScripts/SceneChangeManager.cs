@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class UIManager : MonoBehaviour
+public class SceneChangeManager : MonoBehaviour
 {
     //switching scenes using methods from game manager instance 
     //decided to use this method as i can be specific of what scene to switch to without relying on build index
@@ -13,7 +13,7 @@ public class UIManager : MonoBehaviour
     {
         GameManager.instance.SwitchScenes("Treatment_Scene_Aqsa");
     }
-    
+
     public void LoadRehabilitationScene()
     {
         Debug.Log("hijwkef");

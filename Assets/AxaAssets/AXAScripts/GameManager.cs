@@ -68,11 +68,13 @@ public class GameManager : MonoBehaviour
                 if(SceneManager.GetActiveScene().name == "Treatment_Scene_Aqsa")//if the scene we are in is the treatment scene
                 {
                     Cursor.visible = true; //show the cursor (this is important for the treatment scene)
-                    mainCamera = GameObject.FindWithTag("MainCamera"); //find the main camera
+                    Cursor.lockState = CursorLockMode.None;
+                    mainCamera = GameObject.FindWithTag("MainCameraTreatment"); //find the main camera
+                    playerMovementScript = mainCamera.GetComponent<PlayerMovement>();
                     if (mainCamera != null)//if its found
                     {
-                        //get the player movement script
-                        playerMovementScript = mainCamera.GetComponent<PlayerMovement>();
+                        Cursor.visible = true; 
+                        canvasGroupComponent.blocksRaycasts = true;
                         //disable it
                         playerMovementScript.enabled = false;
                     }
@@ -115,17 +117,27 @@ public class GameManager : MonoBehaviour
     {
          StartCoroutine(fadeInPanelToggle());
     }
-    
+
     public void CloseBackToMainMenuPanel()
     {
-        if(backToMainMenuPanel != null)
+        if (backToMainMenuPanel != null)
         {
-            if(backToMainMenuPanel.activeSelf)
+            if (backToMainMenuPanel.activeSelf)
             {
                 backToMainMenuPanel.SetActive(false);
             }
         }
     }
     
-    //SceneManager.GetActiveScene().name == "Treatment"
+    //when pressing the resume button turn bakc the playerMovement script
+    public void ResumeGameButtonClick()
+    {
+        if(SceneManager.GetActiveScene().name == "Treatment_Scene_Aqsa")//if the scene we are in is the treatment scene
+        {
+            Cursor.visible = false;
+                    Cursor.lockState = CursorLockMode.Locked;
+                    playerMovementScript = mainCamera.GetComponent<PlayerMovement>();
+                    playerMovementScript.enabled = true;
+                }
+    }
 }

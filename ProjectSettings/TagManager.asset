@@ -14,6 +14,9 @@ TagManager:
   - SoldierRightFoot
   - SawPickedUp
   - Magnifier
+  - MainCameraTreatment
+  - FadeToDarkPanel
+  - GameManagerCanvas
   layers:
   - Default
   - TransparentFX

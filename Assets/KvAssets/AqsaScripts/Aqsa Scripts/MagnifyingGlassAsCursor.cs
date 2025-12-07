@@ -13,10 +13,12 @@ public class MagnifyingGlassAsCursor : MonoBehaviour
     private bool isMagnifierVisible; //bool to check if magnifying glass is active 
 
     public GameObject magnifyingGlassParent; //magnifying glass parent object
+    public GameObject treatmentSceneButton;
 
     void Start()
     {
         isMagnifierVisible = false; //set it to false in the beggining 
+        treatmentSceneButton.SetActive(false);
     }
 
 
@@ -35,6 +37,11 @@ public class MagnifyingGlassAsCursor : MonoBehaviour
                 isMagnifierVisible = true;
              }*/
             magnifyingGlassParent.SetActive(isMagnifierVisible); //set the magnifying glass active or inactive depending on if the bool is true or false 
+
+            if (!treatmentSceneButton.activeSelf)
+            {
+                treatmentSceneButton.SetActive(true);
+            }
         }
 
 

@@ -1,7 +1,7 @@
 using UnityEngine;
 using TMPro;
 using System.Collections;
-using System.Drawing;
+using UnityEngine.SceneManagement;
 public class DialogueManager : MonoBehaviour
 {
     [SerializeField] private GameObject canvasObj;
@@ -25,18 +25,21 @@ public class DialogueManager : MonoBehaviour
 
     void Update()
     {
-        if (storingPlayerNameScript.hasNameBeenSaved)
+        if (SceneManager.GetActiveScene().name == "MainMenu")
         {
-            welcomeText.gameObject.SetActive(true);
-            storingPlayerNameScript.playerName = PlayerPrefs.GetString("playerName");
-            welcomeText.text = "Welcome Dr " + storingPlayerNameScript.playerName;
-        }
-        else if (storingPlayerNameScript.hasGameBeenPlayedBefore)
-        {
-            storingPlayerNameScript.playerName = PlayerPrefs.GetString("playerName");
-            welcomeBackText.gameObject.SetActive(true);
-            welcomeBackText.text = "Welcome back Dr " + storingPlayerNameScript.playerName;
-            walkieTalkieText.text = "Dr " + storingPlayerNameScript.playerName + " you are needed in the medic tent now... soldier with severe trench foot, amputation may be needed... over";
+            if (storingPlayerNameScript.hasNameBeenSaved)
+            {
+                welcomeText.gameObject.SetActive(true);
+                storingPlayerNameScript.playerName = PlayerPrefs.GetString("playerName");
+                welcomeText.text = "Welcome Dr " + storingPlayerNameScript.playerName;
+            }
+            else if (storingPlayerNameScript.hasGameBeenPlayedBefore)
+            {
+                storingPlayerNameScript.playerName = PlayerPrefs.GetString("playerName");
+                welcomeBackText.gameObject.SetActive(true);
+                welcomeBackText.text = "Welcome back Dr " + storingPlayerNameScript.playerName;
+                walkieTalkieText.text = "Dr " + storingPlayerNameScript.playerName + " you are needed in the medic tent now... soldier with severe trench foot, amputation may be needed... over";
+            }
         }
 
     }

@@ -2394,6 +2394,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1381737245}
+  - {fileID: 1324730542}
   m_Father: {fileID: 1216779269}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -4041,6 +4042,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1321865726}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: ResumeGameButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &632472114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5109,7 +5122,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 457553409}
-  - {fileID: 1324730542}
   m_Father: {fileID: 1216779269}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -7379,7 +7391,6 @@ RectTransform:
   - {fileID: 1157239682}
   - {fileID: 839268227}
   - {fileID: 463785644}
-  - {fileID: 1627684761}
   - {fileID: 352469423}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7402,7 +7413,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkieTalkieObj: {fileID: 4679027808885655716}
   mainCameraObj: {fileID: 330585543}
-  fadePanelObj: {fileID: 1627684760}
 --- !u!1 &1245809232
 GameObject:
   m_ObjectHideFlags: 0
@@ -7811,6 +7821,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1321865727}
   - component: {fileID: 1321865726}
+  - component: {fileID: 1321865728}
   m_Layer: 0
   m_Name: GameSceneManager
   m_TagString: Untagged
@@ -7848,6 +7859,18 @@ Transform:
   - {fileID: 8091877881496437693}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1321865728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1321865725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c305ff879c0754d4887f9c03e7f0ddd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1324730541
 GameObject:
   m_ObjectHideFlags: 0
@@ -7874,17 +7897,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1324730541}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.39005, y: 1, z: 1}
+  m_LocalScale: {x: 0.13045152, y: 0.94339633, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 532125985}
-  m_Father: {fileID: 839268227}
+  m_Father: {fileID: 352469423}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 311.9, y: -160.7}
+  m_AnchoredPosition: {x: 149.63214, y: -4.43396}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &1324730543
@@ -9504,9 +9527,10 @@ GameObject:
   - component: {fileID: 1627684763}
   - component: {fileID: 1627684762}
   - component: {fileID: 1627684765}
+  - component: {fileID: 1627684766}
   m_Layer: 5
-  m_Name: Fade_Panel
-  m_TagString: Untagged
+  m_Name: Fade_ToDark_Panel
+  m_TagString: FadeToDarkPanel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9523,7 +9547,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1216779269}
+  m_Father: {fileID: 8091877881496437693}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -9603,6 +9627,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: Diagnosis_Scene_KV
+--- !u!225 &1627684766
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1627684760}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &1636332561
 GameObject:
   m_ObjectHideFlags: 0
@@ -13555,7 +13591,7 @@ GameObject:
   - component: {fileID: 3976710424123564650}
   m_Layer: 5
   m_Name: Canvas
-  m_TagString: Untagged
+  m_TagString: GameManagerCanvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13619,6 +13655,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1627684761}
   - {fileID: 6077064222093082883}
   - {fileID: 311281423}
   m_Father: {fileID: 1321865727}
@@ -13710,7 +13747,7 @@ GameObject:
   - component: {fileID: 5771868219063070084}
   - component: {fileID: 8444150872364098974}
   m_Layer: 5
-  m_Name: Fade-in Panel
+  m_Name: Fade_Out_Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

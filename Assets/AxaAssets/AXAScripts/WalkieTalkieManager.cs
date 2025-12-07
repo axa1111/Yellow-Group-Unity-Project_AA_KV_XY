@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 
 //this script will manage the walkiw talkie including the animation and audio etc. 
 public class WalkieTalkieManager : MonoBehaviour
@@ -11,17 +10,20 @@ public class WalkieTalkieManager : MonoBehaviour
     public GameObject mainCameraObj;
     private Animator mainCameraAnim;
 
-    public GameObject fadePanelObj;
+    private GameObject fadePanelObj;
+    private GameObject canvasObj;
     private Animator fadePanelAnim;
 
-
+    public void Start()
+    {
+        walkieTalkieAnim = walkieTalkieObj.GetComponent<Animator>();
+        mainCameraAnim = mainCameraObj.GetComponent<Animator>();
+        canvasObj = GameObject.FindGameObjectWithTag("GameManagerCanvas");
+        fadePanelObj = canvasObj.transform.Find("Fade_ToDark_Panel").gameObject;
+    }
     public void HideWalkieTalkie()
     {
         StartCoroutine(WalkiTalkieDisappears());
-        walkieTalkieAnim = walkieTalkieObj.GetComponent<Animator>();
-        mainCameraAnim = mainCameraObj.GetComponent<Animator>();
-        fadePanelAnim = fadePanelObj.GetComponent<Animator>();
-        
     }
 
     private IEnumerator WalkiTalkieDisappears()
@@ -29,10 +31,10 @@ public class WalkieTalkieManager : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         walkieTalkieAnim.SetBool("putWalkieTalkieAway", true);
         yield return new WaitForSeconds(2f);
-        walkieTalkieObj.SetActive(false);
         mainCameraAnim.SetBool("isWalking", true);
         yield return new WaitForSeconds(8f);
+        fadePanelAnim = fadePanelObj.GetComponent<Animator>();
         fadePanelObj.SetActive(true);
-        //trigger next scene
+
     }
 }
