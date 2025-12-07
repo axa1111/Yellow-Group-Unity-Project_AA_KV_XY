@@ -20,7 +20,7 @@ public class scanFoot : MonoBehaviour
         script_ManageCameraScript = mainCameraObj.GetComponent<Script_ManageCamera>();
     }
 
-//when the camera enters and stays in the collider then show the xray buttons
+//when the camera enters in the collider then show the xray buttons
     private void OnTriggerEnter(Collider other)
     {
         xrayButton.SetActive(true);
