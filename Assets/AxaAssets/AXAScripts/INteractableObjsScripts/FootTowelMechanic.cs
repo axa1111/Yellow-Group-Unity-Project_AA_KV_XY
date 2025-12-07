@@ -16,10 +16,19 @@ public class FootTowelMechanic : MonoBehaviour
     public GameObject cameraObj;
     public GameObject tableTowelPos;
     public GameObject leftFootSoldierHighlightObj;
+    public GameObject soldierObj;
+    private Renderer soldierRenderer;
+
+    //animators
+    private Animator soldierAnimator;
 
     //speed
     private float speed = 2f;
     private float returnSpeed = 0.01f;
+
+    //time float
+    float duration = 10f;
+    float elapsed = 0f;
 
     //bool 
     private bool isMoving = false;
@@ -38,6 +47,9 @@ public class FootTowelMechanic : MonoBehaviour
     private Collider dampFootTowelCollider;
     private Collider leftFootSoldierCollider;
 
+    //materials
+    public Material redToNeutralMat;
+
     void Start()
     {
         footTowelBucketRend = footTowelBucketObj.GetComponent<Renderer>();
@@ -45,6 +57,8 @@ public class FootTowelMechanic : MonoBehaviour
         rayCastManagerScript = cameraObj.GetComponent<RayCastManager>();
         darkYellow = new Color(78 / 255f, 60 / 255f, 0f);
         leftFootSoldierCollider = leftFootSoldierHighlightObj.GetComponent<CapsuleCollider>();
+        soldierAnimator = soldierObj.GetComponent<Animator>();
+        soldierRenderer = soldierObj.GetComponent<Renderer>();
     }
 
     public void StartDunkingFootTowel()
@@ -88,9 +102,10 @@ public class FootTowelMechanic : MonoBehaviour
             dampFootTowelPickedUp.transform.SetParent(null, true); //setting null to remove the the camera as parent and setting true to keep the position it was in the world space
             isMoving = true;
             leftFootSoldierCollider.enabled = false;
+            StartCoroutine(ChangeFootColour());
         }
     }
-    
+
     private IEnumerator clothDampFootTowelToggle()
     {
         yield return new WaitForSeconds(2f);
@@ -105,7 +120,24 @@ public class FootTowelMechanic : MonoBehaviour
         dampFootTowelCollider = dampFootTowelTableObj.GetComponent<Collider>();
         dampFootTowelCollider.enabled = false;
         isMoving = false;
-        
-        
+    }
+    
+    private IEnumerator ChangeFootColour()
+    {
+        yield return new WaitForSeconds(1f);
+        soldierAnimator.SetBool("ChangeFootoRed", true);
+        yield return new WaitForSeconds(1.5f);
+        soldierAnimator.enabled = false;
+        yield return new WaitForSeconds(0.5f);
+        soldierRenderer.material = redToNeutralMat;
+
+        while (elapsed < duration)
+        {
+            float blendValue = Mathf.Clamp01(elapsed / duration);
+            soldierRenderer.material.SetFloat("_Float_Blend_2", blendValue);
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+        soldierRenderer.material.SetFloat("_Float_Blend_2", 1f);      //do texture change for rest of game hre      
     }
 }
