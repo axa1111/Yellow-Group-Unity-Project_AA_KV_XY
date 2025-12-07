@@ -2,11 +2,16 @@ using UnityEngine;
 
 public class scanFoot : MonoBehaviour
 {
-
+    //reference to collider 
     public GameObject cameraDetectionCollider;
+
+    //reference to UI button
     public GameObject xrayButton;
+
+    //reference to main camera
     public GameObject mainCameraObj;
 
+    //reference to script managing camera movement
     private Script_ManageCamera script_ManageCameraScript;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -16,7 +21,7 @@ public class scanFoot : MonoBehaviour
     }
 
 //when the camera enters and stays in the collider then show the xray buttons
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         xrayButton.SetActive(true);
     }
