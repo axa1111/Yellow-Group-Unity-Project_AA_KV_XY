@@ -121,7 +121,7 @@ public class SawMechanic : MonoBehaviour
         sawAnim = sawPickedUp.GetComponent<Animator>();
         sawAnim.enabled = true;
         sawAnim.SetBool("sawAnimationBegin", true);
-        yield return new WaitForSeconds(8.15f);
+        yield return new WaitForSeconds(5f);
         sawAnim.enabled = false;
         sawingDone = true;
     }
