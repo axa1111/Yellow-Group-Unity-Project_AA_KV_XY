@@ -1,11 +1,14 @@
 using UnityEngine;
-using System.Collections; 
-using System.Collections.Generic; 
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 
 public class ToggleHighlLightWithButton : MonoBehaviour
 { 
 
     private bool isClicked = false; 
+
+    public GameObject goListObj;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created 
 
@@ -43,6 +46,7 @@ public class ToggleHighlLightWithButton : MonoBehaviour
         { 
 
             transform.GetComponent<Outline>().enabled = true; 
+            goListObj.GetComponent<ManageHighlightedObjInListScene7>().myObjList.Add(transform.gameObject);
 
         } 
 
@@ -50,14 +54,12 @@ public class ToggleHighlLightWithButton : MonoBehaviour
 
         { 
 
-            transform.GetComponent<Outline>().enabled = false; 
+            transform.GetComponent<Outline>().enabled = false;
+            goListObj.GetComponent<ManageHighlightedObjInListScene7>().myObjList.Remove(transform.gameObject); 
 
-        } 
+        }
 
-   
-
-    } 
-
+    }
 } 
 
  
