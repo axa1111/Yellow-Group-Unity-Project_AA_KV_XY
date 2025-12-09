@@ -5,7 +5,7 @@ using UnityEngine;
 public class RayCastManager : MonoBehaviour
 {
 
-    private float maxDistance = 3.5f; //setting max distance of ray to 6f
+    private float maxDistance = 4f; //setting max distance of ray
     public RaycastHit hit; //declaring variable RayCastHit as hit
 
 

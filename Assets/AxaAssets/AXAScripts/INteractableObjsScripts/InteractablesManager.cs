@@ -97,7 +97,7 @@ public class InteractablesManager : MonoBehaviour
                 timeForSaw = true;
                 break;
             
-            case "Saw": //when timeForSaw: //if the tag is saw the do this
+            case "Saw" when timeForSaw: //if the tag is saw the do this
                 Debug.Log("picked up" + hitObject.name);
                 SwapActiveObj(sawTable, sawPickedUp);
                 hitObject.tag = "Untagged";
