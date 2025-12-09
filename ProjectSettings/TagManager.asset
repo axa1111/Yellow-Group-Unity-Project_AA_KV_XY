@@ -18,6 +18,7 @@ TagManager:
   - FadeToDarkPanel
   - GameManagerCanvas
   - InteractablesParent
+  - instructionsObj
   layers:
   - Default
   - TransparentFX
