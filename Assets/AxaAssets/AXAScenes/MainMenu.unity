@@ -9053,6 +9053,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   backToMainMenuPanel: {fileID: 311281422}
   fadeInPanel: {fileID: 8444150872364098973}
+  fadeOutPanel: {fileID: 1627684760}
 --- !u!4 &1321865727
 Transform:
   m_ObjectHideFlags: 0
@@ -10836,6 +10837,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a541cb7ac03e0d4ca4cf8499c562ae1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneToLoad: 
 --- !u!225 &1627684766
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -15621,7 +15623,7 @@ GameObject:
   - component: {fileID: 5771868219063070084}
   - component: {fileID: 8444150872364098974}
   m_Layer: 5
-  m_Name: Fade_Out_Panel
+  m_Name: Fade_to_clear
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -33,7 +33,6 @@ public class WalkieTalkieManager : MonoBehaviour
         yield return new WaitForSeconds(2f);
         mainCameraAnim.SetBool("isWalking", true);
         yield return new WaitForSeconds(8f);
-        fadePanelAnim = fadePanelObj.GetComponent<Animator>();
         fadePanelObj.SetActive(true);
 
     }

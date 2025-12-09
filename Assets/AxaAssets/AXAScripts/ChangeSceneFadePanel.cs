@@ -28,12 +28,18 @@ public class ChangeSceneFadePanel : MonoBehaviour
         {
             sceneToLoad = "Diagnosis_Scene_KV";
         }
-        
-        if(SceneManager.GetActiveScene().name == "Diagnosis_Scene_KV")
+
+        if (SceneManager.GetActiveScene().name == "Diagnosis_Scene_KV")
         {
             sceneToLoad = "Treatment_Scene_Aqsa";
         }
+
+        if (SceneManager.GetActiveScene().name == "Treatment_Scene_Aqsa")
+        {
+            sceneToLoad = "1rehabilitation";
+        }
     }
+    
     
     
 }

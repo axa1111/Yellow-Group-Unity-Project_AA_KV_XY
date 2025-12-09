@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     private GameObject mainCamera;
     private PlayerMovement playerMovementScript;
     public GameObject fadeInPanel;
+    public GameObject fadeOutPanel;
     private CanvasGroup canvasGroupComponent;
     void Awake()
     {
@@ -139,4 +140,5 @@ public class GameManager : MonoBehaviour
                     playerMovementScript.enabled = true;
                 }
     }
+    
 }
