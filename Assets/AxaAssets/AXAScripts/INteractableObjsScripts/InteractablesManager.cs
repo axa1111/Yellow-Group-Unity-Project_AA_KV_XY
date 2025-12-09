@@ -16,6 +16,8 @@ public class InteractablesManager : MonoBehaviour
     public GameObject sawPickedUp;
     public GameObject faceTowelPickedUp;
     public GameObject footTowelPickedUp;
+    public GameObject dialogueFour;
+    public GameObject dialogueFive;
 
     //bools to track mechanic order
     private bool pickUpFaceTowel = false;
@@ -100,6 +102,8 @@ public class InteractablesManager : MonoBehaviour
             case "Saw" when timeForSaw: //if the tag is saw the do this
                 Debug.Log("picked up" + hitObject.name);
                 SwapActiveObj(sawTable, sawPickedUp);
+                dialogueFour.SetActive(false);
+                dialogueFive.SetActive(true);
                 hitObject.tag = "Untagged";
                 putSawOnRightFoot = true;
                 break;

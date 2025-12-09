@@ -3,10 +3,14 @@ using UnityEngine;
 public class InstructionsMenuToggle : MonoBehaviour
 {
     public bool isInstructionsVisible;
+    public bool isDialogueVisible;
     public GameObject InstructionsObj;
+    public GameObject dialogueParent;
      void Start()
     {
         isInstructionsVisible = true; //set it to true in the beggining
+        dialogueParent.SetActive(false);
+        isDialogueVisible = false;
     }
     void Update()
     {
@@ -21,8 +25,9 @@ public class InstructionsMenuToggle : MonoBehaviour
              {
                 isInstructionsVisible = true;
              }*/
-
+             isDialogueVisible = !isDialogueVisible;
             InstructionsObj.SetActive(isInstructionsVisible); //set the magnifying glass active or inactive depending on if the bool is true or false
+            dialogueParent.SetActive(isDialogueVisible);
         }
     }
 

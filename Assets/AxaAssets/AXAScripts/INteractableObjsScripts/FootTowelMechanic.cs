@@ -17,6 +17,8 @@ public class FootTowelMechanic : MonoBehaviour
     public GameObject tableTowelPos;
     public GameObject leftFootSoldierHighlightObj;
     public GameObject soldierObj;
+    public GameObject DialogueTwo;//ref to dialogue 2 
+    public GameObject dialogueThree;
     private Renderer soldierRenderer;
 
     //animators
@@ -27,7 +29,7 @@ public class FootTowelMechanic : MonoBehaviour
     private float returnSpeed = 0.01f;
 
     //time float
-    float duration = 10f;
+    float duration = 6f;
     float elapsed = 0f;
 
     //bool 
@@ -126,6 +128,7 @@ public class FootTowelMechanic : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         soldierAnimator.SetBool("ChangeFootoRed", true);
+        DialogueTwo.SetActive(true);
         yield return new WaitForSeconds(1.5f);
         soldierAnimator.enabled = false;
         yield return new WaitForSeconds(0.5f);
@@ -138,6 +141,9 @@ public class FootTowelMechanic : MonoBehaviour
             elapsed += Time.deltaTime;
             yield return null;
         }
-        soldierRenderer.material.SetFloat("_Float_Blend_2", 1f);      //do texture change for rest of game hre      
+        soldierRenderer.material.SetFloat("_Float_Blend_2", 1f);      //do texture change for rest of game hre
+        DialogueTwo.SetActive(false);
+        dialogueThree.SetActive(true);
+              
     }
 }

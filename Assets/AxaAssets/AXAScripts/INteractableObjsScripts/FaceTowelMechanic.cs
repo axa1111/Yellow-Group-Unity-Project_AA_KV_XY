@@ -12,6 +12,7 @@ public class FaceTowelMechanic : MonoBehaviour
     public GameObject faceTowelOnTableObj;
     public GameObject headHighlightScript;
     public GameObject zzzParticleSystemObj; //reference to zz particle system
+    public GameObject dialogueFour;
 
     private float speed = 2f;
     private float returnSpeed = 0.01f;
@@ -69,5 +70,7 @@ public class FaceTowelMechanic : MonoBehaviour
         faceTowelOnTableCollider.enabled = false;
         isMoving = false;
         zzzParticleSystemObj.SetActive(true); // turn on the zzz particle system
+        yield return new WaitForSeconds(0.7f);
+        dialogueFour.SetActive(true);
     }
 }

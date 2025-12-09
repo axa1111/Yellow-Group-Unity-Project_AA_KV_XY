@@ -9,6 +9,8 @@ public class SawMechanic : MonoBehaviour
     public GameObject sawPickedUp;
     public GameObject sawPositionTable;
     public GameObject sawOnTable;
+    public GameObject dialogueFive;
+    public GameObject dialogueSix;
 
 //floats
     private float speed = 3.3f;
@@ -99,6 +101,8 @@ public class SawMechanic : MonoBehaviour
                         sawingDone = false;
                         coroutineHasBegun = false;
                         readyForFinalPosition = false;
+                        dialogueFive.SetActive(false);
+                        dialogueSix.SetActive(true);
                     }
                 }
 
@@ -132,6 +136,5 @@ public class SawMechanic : MonoBehaviour
         sawAnim.enabled = false;
         sawingDone = true;
         readyToMoveOntoDiagnosisScene = true;
-        //bloodParticleSystem.Stop();
     }
 }
