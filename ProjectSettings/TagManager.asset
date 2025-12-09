@@ -17,6 +17,7 @@ TagManager:
   - MainCameraTreatment
   - FadeToDarkPanel
   - GameManagerCanvas
+  - InteractablesParent
   layers:
   - Default
   - TransparentFX

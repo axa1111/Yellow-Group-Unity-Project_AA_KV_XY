@@ -67,7 +67,6 @@ public class GameManager : MonoBehaviour
 
                 if(SceneManager.GetActiveScene().name == "Treatment_Scene_Aqsa")//if the scene we are in is the treatment scene
                 {
-                    Cursor.visible = true; //show the cursor (this is important for the treatment scene)
                     Cursor.lockState = CursorLockMode.None;
                     mainCamera = GameObject.FindWithTag("MainCameraTreatment"); //find the main camera
                     playerMovementScript = mainCamera.GetComponent<PlayerMovement>();

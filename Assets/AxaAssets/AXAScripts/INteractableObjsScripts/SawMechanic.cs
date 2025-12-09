@@ -21,6 +21,7 @@ public class SawMechanic : MonoBehaviour
     private bool sawingDone = false;
     private bool coroutineHasBegun = false;//so coroutine only runs instead of every frame once as we trigger it in the update method
     public bool readyForFinalPosition = false;
+    public bool readyToMoveOntoDiagnosisScene = false;
 
     //animator
     private Animator sawAnim;
@@ -37,6 +38,7 @@ public class SawMechanic : MonoBehaviour
     {
         interactablesManager = GetComponent<InteractablesManager>();
         bloodParticleSystem.Stop();
+    
         
     }
 
@@ -129,6 +131,7 @@ public class SawMechanic : MonoBehaviour
         yield return new WaitForSeconds(5f);
         sawAnim.enabled = false;
         sawingDone = true;
+        readyToMoveOntoDiagnosisScene = true;
         //bloodParticleSystem.Stop();
     }
 }
