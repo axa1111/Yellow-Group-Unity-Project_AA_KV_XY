@@ -11,6 +11,7 @@ public class FaceTowelMechanic : MonoBehaviour
     public GameObject faceTowelTablePositionObj;
     public GameObject faceTowelOnTableObj;
     public GameObject headHighlightScript;
+    public GameObject zzzParticleSystemObj; //reference to zz particle system
 
     private float speed = 2f;
     private float returnSpeed = 0.01f;
@@ -26,6 +27,7 @@ public class FaceTowelMechanic : MonoBehaviour
     {
         interactablesManagerScript = GetComponent<InteractablesManager>();
         facePositionCollider = headHighlightScript.GetComponent<Collider>();
+        zzzParticleSystemObj.SetActive(false); //make sure its off the zz particle system
     }
 
     // Update is called once per frame
@@ -66,5 +68,6 @@ public class FaceTowelMechanic : MonoBehaviour
         faceTowelOnTableCollider = faceTowelOnTableObj.GetComponent<Collider>();
         faceTowelOnTableCollider.enabled = false;
         isMoving = false;
+        zzzParticleSystemObj.SetActive(true); // turn on the zzz particle system
     }
 }
