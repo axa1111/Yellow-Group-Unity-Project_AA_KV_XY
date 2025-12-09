@@ -1,4 +1,3 @@
-
 using UnityEngine;
 
 /* cursor visibility https://docs.unity3d.com/6000.0/Documentation/ScriptReference/Cursor.html
@@ -14,6 +13,10 @@ public class MagnifyingGlassAsCursor : MonoBehaviour
 
     public GameObject magnifyingGlassParent; //magnifying glass parent object
     public GameObject treatmentSceneButton;
+
+    public GameObject dialogueThreeObj;
+
+    public GameObject rightfootinstructionsTextObj;
 
     void Start()
     {
@@ -37,15 +40,22 @@ public class MagnifyingGlassAsCursor : MonoBehaviour
                 isMagnifierVisible = true;
              }*/
             magnifyingGlassParent.SetActive(isMagnifierVisible); //set the magnifying glass active or inactive depending on if the bool is true or false 
+            dialogueThreeObj.SetActive(isMagnifierVisible); //set the UI text active or inactived depending on if the bool is true or false so it matches the magnifying glass
 
             if (!treatmentSceneButton.activeSelf)
             {
                 treatmentSceneButton.SetActive(true);
             }
+
+            //turn the right foor instructions dialogue off when the m is pressed
+            if(rightfootinstructionsTextObj.activeSelf)
+            {
+                rightfootinstructionsTextObj.SetActive(false);
+            }
         }
 
 
-
+//movement of magnifying glass
         if (isMagnifierVisible && magnifyingGlassParent != null)
         {
             Vector3 mousePos = Input.mousePosition; //getting mouse position on the screen
