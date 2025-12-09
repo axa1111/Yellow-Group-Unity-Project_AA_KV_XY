@@ -2,44 +2,38 @@ using UnityEngine;
 
 public class scanFoot : MonoBehaviour
 {
-    //reference to collider 
     public GameObject cameraDetectionCollider;
-
-    //reference to UI button
     public GameObject xrayButton;
-
-    //reference to main camera
     public GameObject mainCameraObj;
-
-    //reference to script managing camera movement
     private Script_ManageCamera script_ManageCameraScript;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        //get the script that manages the camera's movement
+        //locate script that manages camera movement
         script_ManageCameraScript = mainCameraObj.GetComponent<Script_ManageCamera>();
     }
 
-//when the camera enters in the collider then show the xray buttons
+    //show scan button when camera enters collider
     private void OnTriggerEnter(Collider other)
     {
         xrayButton.SetActive(true);
     }
 
-//when the camera leaves the collider then hide the xray buttons
+    //hide scan button when the camera leaves collider
     private void OnTriggerExit(Collider other)
     {
         xrayButton.SetActive(false);
 
     }
 
-//when the xray button is pressed disable the camera movement script
+    //set ManageCameraScript inactive when scan button clicked
     public void OnXrayButtonPressed()
     {
         script_ManageCameraScript.enabled = false;
     }
 
-//when the back button is pressed enable the camera movement script
+    //set ManageCameraScript active when back button clicked
     public void OnXrayCloseButtonPressed()
     {
         script_ManageCameraScript.enabled = true;
