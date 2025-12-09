@@ -38,8 +38,15 @@ public class DialogueManager : MonoBehaviour
                 storingPlayerNameScript.playerName = PlayerPrefs.GetString("playerName");
                 welcomeBackText.gameObject.SetActive(true);
                 welcomeBackText.text = "Welcome back Dr " + storingPlayerNameScript.playerName;
+            }
+
+            //managing the walkie talkie text
+            storingPlayerNameScript.playerName = PlayerPrefs.GetString("playerName");
+            if (!string.IsNullOrEmpty(storingPlayerNameScript.playerName))
+            {
                 walkieTalkieText.text = "Dr " + storingPlayerNameScript.playerName + " you are needed in the medic tent now... soldier with severe trench foot, amputation may be needed... over";
             }
+        
         }
 
     }

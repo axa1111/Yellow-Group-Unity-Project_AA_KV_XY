@@ -1,7 +1,5 @@
 using UnityEngine;
 using TMPro;
-using NUnit.Framework;
-using JetBrains.Annotations;
 
 /*This script is working to store the players name to use in
 dialogue throughout the game*/
@@ -15,9 +13,10 @@ public class StoringPlayerName : MonoBehaviour
     public string playerName;
     public bool hasNameBeenSaved;
     public bool hasGameBeenPlayedBefore = false;
-
+    
     void Start()
     {
+        //setting bool to false;
         hasNameBeenSaved = false;
     }
 
@@ -40,8 +39,7 @@ public class StoringPlayerName : MonoBehaviour
             PlayerPrefs.SetString("playerName", myText.text);
             PlayerPrefs.Save();
             inputNameParentObj.SetActive(false);
-            hasNameBeenSaved = true;
-        
+            hasNameBeenSaved = true;    
     }
 
     public void OnClickGet()
