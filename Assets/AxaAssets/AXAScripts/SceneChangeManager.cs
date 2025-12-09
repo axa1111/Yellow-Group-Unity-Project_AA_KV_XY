@@ -17,6 +17,10 @@ public class SceneChangeManager : MonoBehaviour
         GameManager.instance.SwitchScenes("Treatment_Scene_Aqsa");
     }
 
+    public void LoadMainMenuScene()
+    {
+        GameManager.instance.SwitchScenes("MainMenu");
+    }
     public void LoadRehabilitationScene()
     {
         GameManager.instance.SwitchScenes("1rehabilitation");
