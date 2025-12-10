@@ -21,7 +21,7 @@ public class QuestionManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        myQuizManagerScript = GameObject.Find("Canvas").GetComponent<Quizmanager>();
+        myQuizManagerScript = GameObject.Find("CanvasQuiz").GetComponent<Quizmanager>();
     }
     //
     public void OnConfirmClick()

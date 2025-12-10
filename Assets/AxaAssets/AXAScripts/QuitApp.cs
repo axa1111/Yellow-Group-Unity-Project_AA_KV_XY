@@ -9,5 +9,6 @@ public class QuitApp : MonoBehaviour
     {
         //get the instance of game manager and call it's quit method 
         GameManager.instance.Quit();
+        Debug.Log("QuitApp");
     }
 }
