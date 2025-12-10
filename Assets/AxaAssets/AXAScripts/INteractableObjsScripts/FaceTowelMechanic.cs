@@ -23,12 +23,16 @@ public class FaceTowelMechanic : MonoBehaviour
 
     //Scripts
     private InteractablesManager interactablesManagerScript;
+
+    //AudioSource
+    private AudioSource zzzAudioSource;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         interactablesManagerScript = GetComponent<InteractablesManager>();
         facePositionCollider = headHighlightScript.GetComponent<Collider>();
         zzzParticleSystemObj.SetActive(false); //make sure its off the zz particle system
+        zzzAudioSource = zzzParticleSystemObj.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -70,6 +74,7 @@ public class FaceTowelMechanic : MonoBehaviour
         faceTowelOnTableCollider.enabled = false;
         isMoving = false;
         zzzParticleSystemObj.SetActive(true); // turn on the zzz particle system
+        zzzAudioSource.Play();
         yield return new WaitForSeconds(0.7f);
         dialogueFour.SetActive(true);
     }

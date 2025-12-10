@@ -19,6 +19,10 @@ public class FlaskMechanicManager : MonoBehaviour
     //colliders
     private Collider flaskCollider;
 
+    //Audio Aource
+    private AudioSource flaskAS;
+    private AudioSource corkAS;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -26,11 +30,13 @@ public class FlaskMechanicManager : MonoBehaviour
         if (flaskObj != null)
         {
             flaskAnim = flaskObj.GetComponent<Animator>();
+            flaskAS = flaskObj.GetComponent<AudioSource>();
         }
 
         if (corkObj != null)
         {
             corkAnim = corkObj.GetComponent<Animator>();
+            corkAS = corkObj.GetComponent<AudioSource>();
         }
 
         if(faceTowelObj != null)
@@ -54,8 +60,10 @@ public class FlaskMechanicManager : MonoBehaviour
     {
         flaskCollider.enabled = false;
         corkAnim.SetBool("isCorkRemoved", true);
+        corkAS.Play();
         yield return new WaitForSeconds(1.0f);
         flaskAnim.SetBool("FlaskToEmpty", true);
+        flaskAS.Play();
         yield return new WaitForSeconds(1.0f);
         faceTowelAnim.SetBool("faceTowelIsWet", true);
         

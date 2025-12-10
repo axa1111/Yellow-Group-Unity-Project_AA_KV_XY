@@ -34,13 +34,17 @@ public class SawMechanic : MonoBehaviour
     //particle system
     public ParticleSystem bloodParticleSystem;
 
+    //audio source
+    private AudioSource sawAS;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         interactablesManager = GetComponent<InteractablesManager>();
         bloodParticleSystem.Stop();
-    
+
+        sawAS = sawPickedUp.GetComponent<AudioSource>();
         
     }
 
@@ -132,6 +136,7 @@ public class SawMechanic : MonoBehaviour
         sawAnim.enabled = true;
         sawAnim.SetBool("sawAnimationBegin", true);
         bloodParticleSystem.Play();
+        sawAS.Play();
         yield return new WaitForSeconds(5f);
         sawAnim.enabled = false;
         sawingDone = true;

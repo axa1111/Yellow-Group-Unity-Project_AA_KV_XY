@@ -12,7 +12,9 @@ public class WalkieTalkieManager : MonoBehaviour
 
     private GameObject fadePanelObj;
     private GameObject canvasObj;
-    private Animator fadePanelAnim;
+
+    //audio source
+    private AudioSource cameraAS;
 
     public void Start()
     {
@@ -20,6 +22,7 @@ public class WalkieTalkieManager : MonoBehaviour
         mainCameraAnim = mainCameraObj.GetComponent<Animator>();
         canvasObj = GameObject.FindGameObjectWithTag("GameManagerCanvas");
         fadePanelObj = canvasObj.transform.Find("Fade_ToDark_Panel").gameObject;
+        cameraAS = mainCameraObj.GetComponent<AudioSource>();
     }
     public void HideWalkieTalkie()
     {
@@ -32,6 +35,7 @@ public class WalkieTalkieManager : MonoBehaviour
         walkieTalkieAnim.SetBool("putWalkieTalkieAway", true);
         yield return new WaitForSeconds(2f);
         mainCameraAnim.SetBool("isWalking", true);
+        cameraAS.Play();
         yield return new WaitForSeconds(8f);
         fadePanelObj.SetActive(true);
 
