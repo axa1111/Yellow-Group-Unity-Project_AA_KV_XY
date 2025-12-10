@@ -1,6 +1,6 @@
 using System.Collections;
 using UnityEngine;
-//this script will manage the flask interaction and animation being triggered it site on interactable parent obj
+//this script will manage the flask interaction and animation being triggered it sits on interactable parent obj
 public class FlaskMechanicManager : MonoBehaviour
 {
     [Header("Game Object References")]
@@ -58,13 +58,21 @@ public class FlaskMechanicManager : MonoBehaviour
     //turning off collider for flask so it can't be interacted wth again and highligh stops
     private IEnumerator StartFlaskMechanic()
     {
+        //turn off flask collider so it no longer highlights
         flaskCollider.enabled = false;
+        //play the cork animation by setting bool to true
         corkAnim.SetBool("isCorkRemoved", true);
+        //play the audio
         corkAS.Play();
+        //wait one second
         yield return new WaitForSeconds(1.0f);
+        //play the flask pouring animation by setting bool to true
         flaskAnim.SetBool("FlaskToEmpty", true);
+        //play the audio
         flaskAS.Play();
+        //wait one second
         yield return new WaitForSeconds(1.0f);
+        //play the towel animation 
         faceTowelAnim.SetBool("faceTowelIsWet", true);
         
     }

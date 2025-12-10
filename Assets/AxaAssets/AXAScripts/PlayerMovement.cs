@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Cursor.visible = false; 
         Cursor.lockState = CursorLockMode.Locked; //keep mouse centre of th scene and hide it as it's not needed
-        playerController = player.GetComponent<CharacterController>();
+        playerController = player.GetComponent<CharacterController>(); //get character controller
     }
 
     // Update is called once per frame
