@@ -1,13 +1,17 @@
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 
+//this script sits on the interactables parent obj
+//it is used to manages some of the dialogue but mainly the instuctions (ex. press e to pick up towel) in the scene
+//the interactables manager was getting really busy and I wanted to be able to see clearly which dialogue is triggered when
+//it uses swich statements just like the interctables script so for more info and detailed comments please see tat script
 public class ShowName : MonoBehaviour
 {
-     public GameObject cameraObj; //reference to camera which holds the raycast script
+    public GameObject cameraObj; //reference to camera which holds the raycast script
     private RayCastManager raycastManagerScript; //reference to raycast script so we can acces hit variable
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
+//ref to text/dialogue game objs 
     public GameObject dialogueOne;
     public GameObject dialogueThree;
     public GameObject textUIOne;
@@ -18,6 +22,8 @@ public class ShowName : MonoBehaviour
     public GameObject textUISix;
     public GameObject textUISeven;
     public GameObject textUIEight;
+
+    //bools to track which interactables turn it is 
     private bool isdampFootTowelTurn = false;
     private bool isTowelOnFootTurn = false;
     private bool isFlaskTurn = false;
@@ -27,13 +33,16 @@ public class ShowName : MonoBehaviour
     private bool isSoldierRightFootTurn = false;
     void Start()
     {
-         raycastManagerScript = cameraObj.GetComponent<RayCastManager>(); //getting raycast script
+        raycastManagerScript = cameraObj.GetComponent<RayCastManager>(); //getting raycast script
     }
 
     // Update is called once per frame
     void Update()
     {
+        //if the raycastmanager is null keep going (preventing error)
         if (raycastManagerScript == null) return;
+
+        //if the collider hits no object set all the text inactive
         if (raycastManagerScript.hit.collider == null)
         {
             textUIOne.SetActive(false);
@@ -46,53 +55,56 @@ public class ShowName : MonoBehaviour
             textUIEight.SetActive(false);
             return;
         }
+        //hit object is the object of the collider the ray is hitting 
         GameObject hitObject = raycastManagerScript.hit.collider.gameObject;
 
+        //switch statement to manage cases
+        //based on the objs tag
         switch (hitObject.tag)
         {
-            case "FootTowel": //if the tag is FootTowel the do this
-                textUIOne.SetActive(true);
-                isdampFootTowelTurn = true;
+            case "FootTowel": //if the tag is FootTowel 
+                textUIOne.SetActive(true); //set text one active
+                isdampFootTowelTurn = true; //set bool to true
+                break; //exit
+
+            case "DampFootTowel" when isdampFootTowelTurn: //if the tag is DampFootTowel and corrosponding bool is true 
+                dialogueOne.SetActive(false);//set dialogue inactive
+                textUITwo.SetActive(true);//set text active
+                isTowelOnFootTurn = true;//set bool to true
                 break;
 
-            case "DampFootTowel" when isdampFootTowelTurn:
-                dialogueOne.SetActive(false);
-                textUITwo.SetActive(true);
-                isTowelOnFootTurn = true;
-                break;
+            case "SoldierLeftFoot" when isTowelOnFootTurn: //if the tag is SoldierLeftFoot and corrosponding bool is true 
+                textUIThree.SetActive(true);//set text active
+                isFlaskTurn = true;//set bool to true
+                break;//exit
 
-            case "SoldierLeftFoot" when isTowelOnFootTurn:
-                textUIThree.SetActive(true);
-                isFlaskTurn = true;
-                break;
+            case "Flask" when isFlaskTurn: //if the tag is Flask and corrosponding bool is true 
+                textUIFour.SetActive(true);//set text active
+                isFaceTowelTurn = true;//set bool to true
+                break;//exit
 
-            case "Flask" when isFlaskTurn:
-                textUIFour.SetActive(true);
-                isFaceTowelTurn = true;
-                break;
+            case "FaceTowel" when isFaceTowelTurn: //if the tag is FaceTowel and corrosponding bool is true 
+                textUIFive.SetActive(true);//set text active
+                isPlayerFaceTurn = true;//set bool to true
+                break;//exit
 
-            case "FaceTowel" when isFaceTowelTurn:
-                textUIFive.SetActive(true);
-                isPlayerFaceTurn = true;
-                break;
-
-            case "PlayerFace" when isPlayerFaceTurn:
-                textUISix.SetActive(true);
+            case "PlayerFace" when isPlayerFaceTurn: //if the tag is PlayerFace and corrosponding bool is true 
+                textUISix.SetActive(true);//set text active
                 dialogueThree.SetActive(false);
-                isSawTurn = true;
-                break;
+                isSawTurn = true;//set bool to true
+                break;//exit
 
-            case "Saw" when isSawTurn:
-                textUISeven.SetActive(true);
-                isSoldierRightFootTurn = true;
-                Debug.Log("Saw");
-                break;
+            case "Saw" when isSawTurn: //if the tag is Saw and corrosponding bool is true 
+                textUISeven.SetActive(true);//set text active
+                isSoldierRightFootTurn = true;//set bool to true
+                break;//exit
 
-            case "SoldierRightFoot" when isSoldierRightFootTurn:
+            case "SoldierRightFoot" when isSoldierRightFootTurn: //if the tag is SoldierRightFoot and corrosponding bool is true 
                 textUIEight.SetActive(true);
-                break;
+                break;//exit
 
             default:
+            //set them all inactive
                 textUIOne.SetActive(false);
                 textUITwo.SetActive(false);
                 textUIThree.SetActive(false);
@@ -101,7 +113,7 @@ public class ShowName : MonoBehaviour
                 textUISix.SetActive(false);
                 textUISeven.SetActive(false);
                 textUIEight.SetActive(false);
-                break;
+                break;//exit
         }
     }
 }
