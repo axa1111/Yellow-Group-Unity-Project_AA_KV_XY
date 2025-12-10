@@ -2,6 +2,7 @@ using UnityEngine;
 //https://docs.unity3d.com/Packages/com.unity.render-pipelines.universal@14.0/manual/features/rendering-layers.html
 //this script sits on all the interactable items on the treatment scne
 //it manages the outline which is shown when the raycast hist is 
+//this script came with the package i made some changes such as add ing in the TurnOFFOutline method and removed the on mosue down method
 public class HighlightItems : MonoBehaviour
 {
     [SerializeField] private RenderingLayerMask outlineLayer;
@@ -20,13 +21,13 @@ public class HighlightItems : MonoBehaviour
         //TurnOutlineOn();
     }
 
-//turn on the outline
+    //turn on the outline
     public void TurnOutlineOn()
     {
         SetOutline(true);
     }
 
-//turn off the outline
+    //turn off the outline
     public void TurnOutlineOff()
     {
         SetOutline(false);
