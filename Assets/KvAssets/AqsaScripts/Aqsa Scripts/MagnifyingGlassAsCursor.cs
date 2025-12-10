@@ -3,6 +3,7 @@ using UnityEngine;
 /* cursor visibility https://docs.unity3d.com/6000.0/Documentation/ScriptReference/Cursor.html
 // This Script sits on the canvas*/
 //the lense moves slower than the mouse - may need interpolation for faster movement???
+//shader link https://www.youtube.com/watch?si=4sAtcYVs24CwDwjk&v=9g2VqJvWnQI&feature=youtu.be
 public class MagnifyingGlassAsCursor : MonoBehaviour
 {
 
@@ -12,11 +13,11 @@ public class MagnifyingGlassAsCursor : MonoBehaviour
     private bool isMagnifierVisible; //bool to check if magnifying glass is active 
 
     public GameObject magnifyingGlassParent; //magnifying glass parent object
-    public GameObject treatmentSceneButton;
+    public GameObject treatmentSceneButton; //ref to treatment scene button
 
-    public GameObject dialogueThreeObj;
+    public GameObject dialogueThreeObj; //ref to dialog 3
 
-    public GameObject rightfootinstructionsTextObj;
+    public GameObject rightfootinstructionsTextObj; //ref to right foot instructions text obj
 
     void Start()
     {
@@ -42,20 +43,23 @@ public class MagnifyingGlassAsCursor : MonoBehaviour
             magnifyingGlassParent.SetActive(isMagnifierVisible); //set the magnifying glass active or inactive depending on if the bool is true or false 
             dialogueThreeObj.SetActive(isMagnifierVisible); //set the UI text active or inactived depending on if the bool is true or false so it matches the magnifying glass
 
+            //if the treatment scene button is not active
             if (!treatmentSceneButton.activeSelf)
             {
+                //set it active
                 treatmentSceneButton.SetActive(true);
             }
 
             //turn the right foor instructions dialogue off when the m is pressed
-            if(rightfootinstructionsTextObj.activeSelf)
+            if (rightfootinstructionsTextObj.activeSelf)
             {
+                //set the right foot instruction Text obj inactive
                 rightfootinstructionsTextObj.SetActive(false);
             }
         }
 
 
-//movement of magnifying glass
+        //movement of magnifying glass
         if (isMagnifierVisible && magnifyingGlassParent != null)
         {
             Vector3 mousePos = Input.mousePosition; //getting mouse position on the screen
