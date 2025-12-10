@@ -15,6 +15,8 @@ public class PlayerMovement : MonoBehaviour
     //movement variables
     private float walkSpeed = 5f; //walkspeed how fast player should move
     private CharacterController playerController; //reference to character controller component on player
+    //bool to check if player has moved
+    private bool hasMoved = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
