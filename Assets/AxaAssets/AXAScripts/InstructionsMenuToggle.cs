@@ -1,16 +1,18 @@
 using UnityEngine;
-
+/*This script sits on the instruction_parent obj in the treatment scene, it toggles the instructions ppanel on and off*/
 public class InstructionsMenuToggle : MonoBehaviour
 {
+    //bool to check if instructions panel is visible 
     public bool isInstructionsVisible;
-    public bool isDialogueVisible;
-    public GameObject InstructionsObj;
-    public GameObject dialogueParent;
+    public bool isDialogueVisible; //bool to check if dialogue is visble 
+    public GameObject InstructionsObj; //instruction panel ref
+    public GameObject dialogueParent; //dialogue parent ref
      void Start()
     {
+        //setting is instructions visible to true as the senc=e will begin with showing the instructions
         isInstructionsVisible = true; //set it to true in the beggining
-        dialogueParent.SetActive(false);
-        isDialogueVisible = false;
+        dialogueParent.SetActive(false); //tunr off te dialogue 
+        isDialogueVisible = false; //ser bool to false
     }
     void Update()
     {
@@ -25,9 +27,9 @@ public class InstructionsMenuToggle : MonoBehaviour
              {
                 isInstructionsVisible = true;
              }*/
-             isDialogueVisible = !isDialogueVisible;
-            InstructionsObj.SetActive(isInstructionsVisible); //set the magnifying glass active or inactive depending on if the bool is true or false
-            dialogueParent.SetActive(isDialogueVisible);
+             isDialogueVisible = !isDialogueVisible; //whatever the bool is set it will set to opposite,
+            InstructionsObj.SetActive(isInstructionsVisible); //set the instructions obj active or inactive depending on if the bool is true or false
+            dialogueParent.SetActive(isDialogueVisible); //set the dialogue parent obj active or inactive depending on if the bool is true or false
         }
     }
 
