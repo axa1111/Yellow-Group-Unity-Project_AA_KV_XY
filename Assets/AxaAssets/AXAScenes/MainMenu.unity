@@ -2396,9 +2396,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1321865726}
-        m_TargetAssemblyTypeName: GameSceneManager, Assembly-CSharp
-        m_MethodName: Quit
+      - m_Target: {fileID: 1216779271}
+        m_TargetAssemblyTypeName: QuitApp, Assembly-CSharp
+        m_MethodName: OnQuit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9112,6 +9112,7 @@ GameObject:
   - component: {fileID: 1216779266}
   - component: {fileID: 1216779265}
   - component: {fileID: 1216779270}
+  - component: {fileID: 1216779271}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -9236,6 +9237,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkieTalkieObj: {fileID: 4679027808885655716}
   mainCameraObj: {fileID: 330585543}
+--- !u!114 &1216779271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1216779264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0730f586e5ae11d41b9ecb61db8c7423, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1223300791
 GameObject:
   m_ObjectHideFlags: 0
